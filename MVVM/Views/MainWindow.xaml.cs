@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace LF10_Project
+namespace LF10_Project.MVVM.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
