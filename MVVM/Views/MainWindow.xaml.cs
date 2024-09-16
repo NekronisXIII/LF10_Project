@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using LF10_Project.MVVM.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -18,7 +20,9 @@ namespace LF10_Project.MVVM.Views
     {
         public MainWindow()
         {
-            InitializeComponent();
+            DataContext = App.Instance.ServiceProvider.GetRequiredService<MainWindowViewModel>();
+
+			InitializeComponent();
         }
     }
 }
