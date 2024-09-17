@@ -13,14 +13,14 @@ namespace LF10_Project.Resources.Utils
         public static bool? ShowDialog<T>(object viewModel) where T : Window
         {
             Window window = ActivatorUtilities.CreateInstance<T>(App.Instance.ServiceProvider, viewModel);
-            window.Owner = Application.Current.MainWindow;
+            if(Application.Current.MainWindow.IsActive) window.Owner = Application.Current.MainWindow;
             return window.ShowDialog();
         }
 
         public static void ShowWindow<T>(object viewModel) where T : Window
         {
             Window window = ActivatorUtilities.CreateInstance<T>(App.Instance.ServiceProvider, viewModel);
-            window.Owner = Application.Current.MainWindow;
+            if(Application.Current.MainWindow.IsActive) window.Owner = Application.Current.MainWindow;
             window.Show();
         }
 

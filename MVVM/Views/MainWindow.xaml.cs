@@ -1,4 +1,5 @@
 ﻿using LF10_Project.MVVM.ViewModels;
+using LF10_Project.Resources.Utils;
 using Microsoft.Extensions.DependencyInjection;
 using System.Text;
 using System.Windows;
@@ -18,11 +19,15 @@ namespace LF10_Project.MVVM.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             DataContext = App.Instance.ServiceProvider.GetRequiredService<MainWindowViewModel>();
 
+            bool result = WindowManager.ShowDialog<LoginWindow>(App.Instance.ServiceProvider.GetRequiredService<LoginWindowViewModel>()) ?? false;
 			InitializeComponent();
         }
+
+
     }
 }

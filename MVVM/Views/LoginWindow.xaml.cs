@@ -12,21 +12,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace LF10_Project.MVVM.Views
 {
     /// <summary>
-    /// Interaktionslogik für UserControl1.xaml
+    /// Interaktionslogik für LoginWindow.xaml
     /// </summary>
-    public partial class GradesUserControl : UserControl
+    public partial class LoginWindow : Window
     {
-        public GradesUserControl()
+        public LoginWindow(LoginWindowViewModel loginWindowViewModel)
         {
-            DataContext = App.Instance.ServiceProvider.GetRequiredService<GradesViewModel>();
+            DataContext = loginWindowViewModel;
             InitializeComponent();
-
         }
     }
 }
