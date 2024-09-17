@@ -32,7 +32,7 @@ namespace LF10_Project
 			services.AddTransient<MainWindowViewModel>();
 			services.AddTransient<MainWindow>();
 			services.AddTransient<GradesViewModel>();
-
+			services.AddTransient<TeacherListViewModel>();
 			return services.BuildServiceProvider();
 		}
 		#endregion
