@@ -31,10 +31,12 @@ namespace LF10_Project
 
 			services.AddTransient<MainWindowViewModel>();
 			services.AddTransient<MainWindow>();
+			services.AddTransient<GradesViewModel>();
 
 			return services.BuildServiceProvider();
 		}
 		#endregion
+
 
 		#region Override methods
 		protected override void OnStartup(StartupEventArgs e)

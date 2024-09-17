@@ -1,6 +1,10 @@
 ﻿using LF10_Project.MVVM.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -14,14 +18,16 @@ using System.Windows.Shapes;
 namespace LF10_Project.MVVM.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaktionslogik für UserControl1.xaml
     /// </summary>
-    public partial class Grades : Window
+    public partial class GradesUserControl : UserControl
     {
-        public Grades()
+        public List<string> TestEntrys = new List<string> { "Deutsch", "Mathe", "English" };
+        public GradesUserControl()
         {
+            DataContext = App.Instance.ServiceProvider.GetRequiredService<GradesViewModel>();
+            InitializeComponent();
 
-			InitializeComponent();
         }
     }
 }

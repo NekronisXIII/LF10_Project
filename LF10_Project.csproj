@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="MVVM\Models\" />
     <Folder Include="MVVM\Services\" />
     <Folder Include="Resources\" />
   </ItemGroup>
