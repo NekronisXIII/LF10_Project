@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    <Style x:Key="OptionsBorderStyle" TargetType="Border">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding OptionsOpen}" Value="True">
+                
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+</ResourceDictionary>
