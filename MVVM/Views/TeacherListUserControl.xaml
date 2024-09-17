@@ -7,11 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="0">
-        <DataGrid ItemsSource="{Binding GradeEntry}" AutoGenerateColumns="False">
+        <DataGrid ItemsSource="{Binding Teacher}" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Note" Binding="{Binding GradeValue}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Fach" Binding="{Binding Subject}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Lehrer" Binding="{Binding MailAdress}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Vorname" Binding="{Binding FirstName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Nachname" Binding="{Binding LastName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="E-Mail" Binding="{Binding MailAdress}"></DataGridTextColumn>
 
             </DataGrid.Columns>
         </DataGrid>

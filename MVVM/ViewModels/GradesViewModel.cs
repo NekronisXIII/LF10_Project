@@ -17,7 +17,8 @@ namespace LF10_Project.MVVM.ViewModels
         
         public GradesViewModel()
         {
-            GradeEntry.Add(new Grade(6,"Deutsch","lehrer@web.de"));
+            GradeEntry.Add(new Grade(6, "Deutsch", "Robert.James@web.de"));
+            GradeEntry.Add(new Grade(4, "English", "Michelle.Redneck@web.de"));
         }
 
     }

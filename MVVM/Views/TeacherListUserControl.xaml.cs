@@ -22,10 +22,9 @@ namespace LF10_Project.MVVM.Views
     /// </summary>
     public partial class TeacherListUserControl : UserControl
     {
-        public List<string> TestEntrys = new List<string> { "Deutsch", "Mathe", "English" };
         public TeacherListUserControl()
         {
-            DataContext = App.Instance.ServiceProvider.GetRequiredService<GradesViewModel>();
+            DataContext = App.Instance.ServiceProvider.GetRequiredService<TeacherListViewModel>();
             InitializeComponent();
 
         }

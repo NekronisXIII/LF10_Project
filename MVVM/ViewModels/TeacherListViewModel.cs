@@ -13,10 +13,12 @@ namespace LF10_Project.MVVM.ViewModels
     {
 
 
-        
+        [ObservableProperty]
+        private ObservableCollection<Teacher> _teacher = new();
         public TeacherListViewModel()
         {
-
+            Teacher.Add(new Teacher("Robert", "James", "Robert.James@gmail.com"));
+            Teacher.Add(new Teacher("Michelle", "Redneck", "Michelle.Redneck@gmail.com"));
         }
 
     }
