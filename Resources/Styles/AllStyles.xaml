@@ -3,5 +3,6 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Border.xaml"/>
+        <ResourceDictionary Source="Button.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

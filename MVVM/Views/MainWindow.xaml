@@ -7,21 +7,25 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Margin="0">
-       
-        
-        <TabControl>
-            <TabItem Header="Noten">
-                <local:GradesUserControl></local:GradesUserControl>
-            </TabItem>
-            <TabItem Header="Lehrer">
-                <local:TeacherListUserControl></local:TeacherListUserControl>
-            </TabItem>
-            <TabItem Header="Stundenplan"/>
-            <TabItem Header="Einschulung"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ToolBar>
+            <Button Content="Options" Command="{Binding OpenOptionsCommand}"/>
+        </ToolBar>
+
+        <TabControl Grid.Row="1">
+            <TabItem Header="1"/>
+            <TabItem Header="1"/>
+            <TabItem Header="1"/>
         </TabControl>
-        
-        <Border Margin="-100 0 0 0" HorizontalAlignment="Left" Width="100" Background="Orange">
-            
+
+        <Button Grid.RowSpan="2" Command="{Binding CloseOptionsCommand}" Style="{StaticResource OptionsShadowButtonStyle}"/>
+
+        <Border Grid.RowSpan="2" Style="{StaticResource OptionsBorderStyle}" Margin="-100 0 0 0" HorizontalAlignment="Left" Width="100" Background="Orange">
+
         </Border>
     </Grid>
 </Window>
