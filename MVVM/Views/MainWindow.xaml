@@ -17,9 +17,16 @@
         </ToolBar>
 
         <TabControl Grid.Row="1">
-            <TabItem Header="1"/>
-            <TabItem Header="1"/>
-            <TabItem Header="1"/>
+            <TabItem Header="Noten">
+                <local:GradesUserControl></local:GradesUserControl>
+            </TabItem>
+            <TabItem Header="Lehrer">
+                <local:TeacherListUserControl></local:TeacherListUserControl>
+            </TabItem>
+            <TabItem Header="Stundenplan"/>
+            <TabItem Header="Einschulung">
+                <local:EnrollmentUserControl></local:EnrollmentUserControl>
+            </TabItem>
         </TabControl>
 
         <Button Grid.RowSpan="2" Command="{Binding CloseOptionsCommand}" Style="{StaticResource OptionsShadowButtonStyle}"/>
