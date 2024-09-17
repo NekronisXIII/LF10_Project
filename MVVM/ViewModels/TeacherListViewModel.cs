@@ -9,15 +9,14 @@ using LF10_Project.MVVM.Models;
 
 namespace LF10_Project.MVVM.ViewModels
 {
-    partial class GradesViewModel : ObservableObject
+    partial class TeacherListViewModel : ObservableObject
     {
 
-        [ObservableProperty]
-        private ObservableCollection<Grade> _gradeEntry = new();
+
         
-        public GradesViewModel()
+        public TeacherListViewModel()
         {
-            GradeEntry.Add(new Grade(6,"Deutsch","lehrer@web.de"));
+
         }
 
     }
