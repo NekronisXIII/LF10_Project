@@ -38,7 +38,7 @@
 
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal"/>
+                        <UniformGrid Rows="1" />
                     </ItemsPanelTemplate>
                 </ItemsControl.ItemsPanel>
 
@@ -53,8 +53,11 @@
 
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Border HorizontalAlignment="Stretch" BorderBrush="HotPink" BorderThickness="1" Height="{Binding Type, Converter={StaticResource SubjectTypeToIntConverter}}">
-                                        <TextBlock Text="{Binding SubjectName}" />
+                                    <Border CornerRadius="5" Background="LightBlue" BorderThickness="1" Visibility="{Binding Type, Converter={StaticResource SubjectTypeToVisibilityConverter}}" Height="{Binding Type, Converter={StaticResource SubjectTypeToIntConverter}}">
+                                        <StackPanel Margin="5 5 0 0">
+                                            <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding SubjectName}" />
+                                            <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding SubjectLocation}" />
+                                        </StackPanel>
                                     </Border>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>

@@ -30,6 +30,9 @@ namespace LF10_Project.MVVM.Views
 
         }
 
-
+        private void OnClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            App.Current.Shutdown(0);
+        }
     }
 }

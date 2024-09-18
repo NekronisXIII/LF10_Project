@@ -3,4 +3,5 @@
                     xmlns:local="clr-namespace:LF10_Project.Resources.Converters">
 
     <local:SubjectTypeToIntConverter x:Key="SubjectTypeToIntConverter"/>
+    <local:SubjectTypeToVisibilityConverter x:Key="SubjectTypeToVisibilityConverter"/>
 </ResourceDictionary>

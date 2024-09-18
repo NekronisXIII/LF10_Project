@@ -56,14 +56,10 @@ namespace LF10_Project
 			{
                 MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
                 MainWindow.Show();
+				return;
             }
-			else
-			{
-
-				Current.Shutdown(-1);
-			}
-
-
+			
+			Current.Shutdown(0);
 		}
 		#endregion
 		#endregion
