@@ -4,6 +4,6 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/LF10_Project;component/Resources/Styles/AllStyles.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/LF10_Project;component/Resources/Images/AllImages.xaml"/>
-        
+        <ResourceDictionary Source="pack://application:,,,/LF10_Project;component/Resources/Converters/AllConverters.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

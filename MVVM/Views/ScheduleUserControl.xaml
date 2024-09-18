@@ -1,0 +1,69 @@
+﻿<UserControl x:Class="LF10_Project.MVVM.Views.ScheduleUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LF10_Project.MVVM.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Label HorizontalAlignment="Center" Content="Montag"/>
+                <Label Grid.Column="1" HorizontalAlignment="Center" Content="Dienstag"/>
+                <Label Grid.Column="2" HorizontalAlignment="Center" Content="Mittwoch"/>
+                <Label Grid.Column="3" HorizontalAlignment="Center" Content="Donnerstag"/>
+                <Label Grid.Column="4" HorizontalAlignment="Center" Content="Freitag"/>
+            </Grid>
+
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding ScheduleDays}">
+                <ItemsControl.Template>
+                    <ControlTemplate TargetType="ItemsControl">
+                        <ItemsPresenter/>
+                    </ControlTemplate>
+                </ItemsControl.Template>
+
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ItemsControl ItemsSource="{Binding ScheduleSubjects}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel Orientation="Vertical"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border HorizontalAlignment="Stretch" BorderBrush="HotPink" BorderThickness="1" Height="{Binding Type, Converter={StaticResource SubjectTypeToIntConverter}}">
+                                        <TextBlock Text="{Binding SubjectName}" />
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+        
+        
+    </Grid>
+</UserControl>

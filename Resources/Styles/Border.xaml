@@ -26,7 +26,7 @@
                     <BeginStoryboard Name="ClosingAnimation">
                         <Storyboard>
                             <ThicknessAnimation Storyboard.TargetProperty="Margin"
-                                             To="-285,0,0,0"
+                                             To="-100,0,0,0"
                                              Duration="0:0:0.5">
                                 <ThicknessAnimation.EasingFunction>
                                     <CubicEase EasingMode="EaseInOut"/>

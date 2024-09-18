@@ -20,9 +20,9 @@ namespace LF10_Project.MVVM.ViewModels
     public partial class LoginWindowViewModel : ObservableObject
     {
         [ObservableProperty]
-        private string _name;
+        private string _name = "Manfred";
         [ObservableProperty]
-        private string _password;
+        private string _password = "unhashed";
 
         private IAccountService _accountService;
 

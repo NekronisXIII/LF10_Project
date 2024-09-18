@@ -38,6 +38,7 @@ namespace LF10_Project
 			services.AddTransient<GradesViewModel>();
 			services.AddTransient<TeacherListViewModel>();
 			services.AddTransient<LoginWindowViewModel>();
+			services.AddTransient<ScheduleUserControlViewModel>();
 			services.AddSingleton<IAccountService, LoginService>();
 
 			return services.BuildServiceProvider();
