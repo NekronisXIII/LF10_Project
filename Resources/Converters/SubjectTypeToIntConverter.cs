@@ -11,11 +11,13 @@ namespace LF10_Project.Resources.Converters
 {
     class SubjectTypeToIntConverter : IValueConverter
     {
+        const int EmptyTypeValue = 45;
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is SubjectType subjectType)
             {
-                return (int) value;
+                return (subjectType == SubjectType.Empty) ? EmptyTypeValue : (int) subjectType;
             }
 
             return 0;

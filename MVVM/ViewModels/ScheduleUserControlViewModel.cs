@@ -21,7 +21,7 @@ namespace LF10_Project.MVVM.ViewModels
         #region Constructors
         public ScheduleUserControlViewModel() 
         {
-            ScheduleSubject emptySubject = new ScheduleSubject(SubjectType.Empty);
+			ScheduleSubject emptySubject = new ScheduleSubject(SubjectType.Empty);
             ScheduleSubject breakSubject = new ScheduleSubject(SubjectType.Break);
             ScheduleSubject longBreakSubject = new ScheduleSubject(SubjectType.LongBreak);
             ScheduleSubject subjectGerman1h = new ScheduleSubject("Deutsch", "C109", SubjectType.OneHoure);
@@ -40,6 +40,5 @@ namespace LF10_Project.MVVM.ViewModels
         }
         #endregion
         #endregion
-
     }
 }
