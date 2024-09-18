@@ -15,6 +15,15 @@
         <ToolBar>
             <Button Content="Options" Command="{Binding OpenOptionsCommand}"/>
         </ToolBar>
+        <Grid Height="30" HorizontalAlignment="Right">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Content="{Binding Username}" HorizontalAlignment="Right"></Label>
+            <Image Grid.Column="1" Source="{StaticResource AccountImage}" HorizontalAlignment="Right"></Image>
+        </Grid>
 
         <TabControl Grid.Row="1">
             <TabItem Header="Noten">
@@ -23,7 +32,9 @@
             <TabItem Header="Lehrer">
                 <local:TeacherListUserControl></local:TeacherListUserControl>
             </TabItem>
-            <TabItem Header="Stundenplan"/>
+            <TabItem Header="Stundenplan">
+                <local:ScheduleUserControl/>
+            </TabItem>
             <TabItem Header="Einschulung">
                 <local:EnrollmentUserControl></local:EnrollmentUserControl>
             </TabItem>
@@ -31,8 +42,34 @@
 
         <Button Grid.RowSpan="2" Command="{Binding CloseOptionsCommand}" Style="{StaticResource OptionsShadowButtonStyle}"/>
 
-        <Border Grid.RowSpan="2" Style="{StaticResource OptionsBorderStyle}" Margin="-100 0 0 0" HorizontalAlignment="Left" Width="100" Background="Orange">
+        <Border Grid.RowSpan="2" Margin="-100 0 0 0" Style="{StaticResource OptionsBorderStyle}" HorizontalAlignment="Left" Width="100" Background="Orange">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
 
+                <ComboBox 
+            Grid.Row="0"
+            ItemsSource="{Binding TypeOfSchool}"
+            Height="50"
+            Text="Schulart"
+            IsEditable="true"
+            IsReadOnly="true"/>
+
+
+                <ComboBox 
+            Grid.Row="1"
+            ItemsSource="{Binding TypeOfSchool}"
+            Height="50"
+            Text="Ausbildungslinie"
+            IsEditable="true"
+            IsReadOnly="true"/>
+
+                <Button 
+                   Grid.Row="2" Content="Auswählen"></Button>
+            </Grid>
         </Border>
     </Grid>
 </Window>

@@ -1,8 +1,12 @@
-﻿using LF10_Project.MVVM.ViewModels;
+﻿using LF10_Project.MVVM.Services;
+using LF10_Project.MVVM.Services.Interfaces;
+using LF10_Project.MVVM.ViewModels;
 using LF10_Project.MVVM.Views;
+using LF10_Project.Resources.Utils;
 using Microsoft.Extensions.DependencyInjection;
 using System.Configuration;
 using System.Data;
+using System.Diagnostics;
 using System.Windows;
 
 namespace LF10_Project
@@ -34,17 +38,31 @@ namespace LF10_Project
 			services.AddTransient<GradesViewModel>();
 			services.AddTransient<TeacherListViewModel>();
 			services.AddTransient<LoginWindowViewModel>();
+			services.AddSingleton<IAccountService, LoginService>();
+
 			return services.BuildServiceProvider();
 		}
 		#endregion
 
 
 		#region Override methods
-		protected override void OnStartup(StartupEventArgs e)
+		private void OnStartup(object sender, StartupEventArgs e)
 		{
-			_serviceProvider.GetRequiredService<MainWindow>().Show();
+			Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
+            var service = _serviceProvider.GetRequiredService<IAccountService>();
+            bool result = WindowManager.ShowDialog<LoginWindow>(App.Instance.ServiceProvider.GetRequiredService<LoginWindowViewModel>()) ?? false;
+			if (result)
+			{
+                MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
+                MainWindow.Show();
+            }
+			else
+			{
 
-			base.OnStartup(e);
+				Current.Shutdown(-1);
+			}
+
+
 		}
 		#endregion
 		#endregion

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LF10_Project.MVVM.Models
 {
-    internal class Login
+    public class Login
     {
 
         public string Name { get; set; }

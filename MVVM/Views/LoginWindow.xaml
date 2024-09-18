@@ -17,11 +17,11 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Content="Try again" Visibility="{Binding VisibilityWrongLoginLabel}"></Label>
+        <Label Grid.Row="0" Content="Try again!" HorizontalAlignment="Center" Visibility="{Binding VisibilityWrongLoginLabel}"></Label>
         <Label Grid.Row="1" Content="Name"></Label>
         <TextBox Grid.Row="2" BorderBrush="{Binding BorderColorLoginField}" Text="{Binding Name}" Margin="5"></TextBox>
         <Label Grid.Row="3" Content="Passwort"></Label>
-        <TextBox BorderBrush="{Binding BorderColorLoginField}" Text="{Binding Password}" Grid.Row="4" Margin="5"/>
-        <Button IsDefault="True" Command="{Binding LoginCommand}" Grid.Row="5" Content="Login" Margin="5" Width="50" HorizontalAlignment="Right"></Button>
+        <PasswordBox x:Name="PWBox" PasswordChar="*" BorderBrush="{Binding BorderColorLoginField}"  Grid.Row="4" Margin="5"/>
+        <Button CommandParameter="{Binding ElementName=PWBox}" IsDefault="True" Command="{Binding LoginCommand}" Grid.Row="5" Content="Login" Margin="5" Width="50" HorizontalAlignment="Right"></Button>
     </Grid>
 </Window>
