@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LF10_Project.MVVM.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="550" Width="800"
+        Title="MainWindow" Height="600" Width="800"
         Closing="OnClosing">
     <Grid Margin="0">
         <Grid.RowDefinitions>
@@ -13,8 +13,8 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <ToolBar>
-            <Button Content="Options" Command="{Binding OpenOptionsCommand}"/>
+        <ToolBar Padding="2">
+            <Button Content="Options" Command="{Binding OpenOptionsCommand}" Style="{StaticResource ToolBarButtonStyle}"/>
         </ToolBar>
         <Grid Height="30" HorizontalAlignment="Right">
             <Grid.ColumnDefinitions>
@@ -28,22 +28,22 @@
 
         <TabControl Grid.Row="1">
             <TabItem Header="Noten">
-                <local:GradesUserControl></local:GradesUserControl>
+                <local:GradesUserControl/>
             </TabItem>
             <TabItem Header="Lehrer">
-                <local:TeacherListUserControl></local:TeacherListUserControl>
+                <local:TeacherListUserControl/>
             </TabItem>
             <TabItem Header="Stundenplan">
                 <local:ScheduleUserControl/>
             </TabItem>
             <TabItem Header="Einschulung">
-                <local:EnrollmentUserControl></local:EnrollmentUserControl>
+                <local:EnrollmentUserControl/>
             </TabItem>
         </TabControl>
 
         <Button Grid.RowSpan="2" Command="{Binding CloseOptionsCommand}" Style="{StaticResource OptionsShadowButtonStyle}"/>
 
-        <Border Grid.RowSpan="2" Margin="-100 0 0 0" Style="{StaticResource OptionsBorderStyle}" HorizontalAlignment="Left" Width="100" Background="Orange">
+        <Border Grid.RowSpan="2" Style="{StaticResource OptionsBorderStyle}">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"></RowDefinition>
@@ -52,24 +52,38 @@
                 </Grid.RowDefinitions>
 
                 <ComboBox 
-            Grid.Row="0"
-            ItemsSource="{Binding TypeOfSchool}"
-            Height="50"
-            Text="Schulart"
-            IsEditable="true"
-            IsReadOnly="true"/>
-
+                        Grid.Row="0"
+                        ItemsSource="{Binding TypeOfSchool}"
+                        HorizontalAlignment="Left"
+                        Height="20"
+                        Width="150"
+                        Margin="5"
+                        Text="Klasse"
+                        IsEditable="true"
+                        IsReadOnly="true"/>
+                
+                <ComboBox 
+                        Grid.Row="1"
+                        ItemsSource="{Binding TypeOfSchool}"
+                        HorizontalAlignment="Left"
+                        Height="20"
+                        Width="150"
+                        Margin="5"
+                        Text="Schulart"
+                        IsEditable="true"
+                        IsReadOnly="true"/>
 
                 <ComboBox 
-            Grid.Row="1"
-            ItemsSource="{Binding TypeOfSchool}"
-            Height="50"
-            Text="Ausbildungslinie"
-            IsEditable="true"
-            IsReadOnly="true"/>
+                        Grid.Row="2"
+                        ItemsSource="{Binding TypeOfSchool}"
+                        HorizontalAlignment="Left"
+                        Height="20"
+                        Width="150"
+                        Margin="5"
+                        Text="Ausbildungslinie"
+                        IsEditable="true"
+                        IsReadOnly="true"/>
 
-                <Button 
-                   Grid.Row="2" Content="Auswählen"></Button>
             </Grid>
         </Border>
     </Grid>

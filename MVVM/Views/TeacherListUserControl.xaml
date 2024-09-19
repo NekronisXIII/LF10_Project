@@ -7,12 +7,14 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="0">
-        <DataGrid ItemsSource="{Binding Teacher}" AutoGenerateColumns="False">
+        <DataGrid CanUserSortColumns="False" HeadersVisibility="Column" 
+					  VirtualizingStackPanel.IsVirtualizing="False" VerticalGridLinesBrush="#A0A0A0"  
+					  HorizontalGridLinesBrush="#A0A0A0" CanUserResizeRows="False" ItemsSource="{Binding Teacher}" AutoGenerateColumns="False"
+                    CanUserReorderColumns="False" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Vorname" Binding="{Binding FirstName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Nachname" Binding="{Binding LastName}"></DataGridTextColumn>
-                <DataGridTextColumn Header="E-Mail" Binding="{Binding MailAdress}"></DataGridTextColumn>
-
+                <DataGridTextColumn Header="Vorname" IsReadOnly="true" Binding="{Binding FirstName}"/>
+                <DataGridTextColumn Header="Nachname" IsReadOnly="true" Binding="{Binding LastName}"/>
+                <DataGridTextColumn Width="*" Header="E-Mail" IsReadOnly="true" Binding="{Binding MailAdress}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

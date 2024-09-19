@@ -11,7 +11,7 @@ namespace LF10_Project.MVVM.Models.Enums
         Break = 15,
         LongBreak = 30,
         OneHoure = 45,
-        TwoHours = 90,
+        TwoHours = 94,
         Empty = 0
 	}
 }
