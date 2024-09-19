@@ -12,7 +12,7 @@
     <Style x:Key="{x:Type DataGridColumnHeader}" TargetType="DataGridColumnHeader">
         <Setter Property="Background" Value="#1f1f1f"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="BorderBrush" Value="#2d2f32"/>
         <Setter Property="BorderThickness" Value="0 0 1 0"/>
         <Setter Property="Padding" Value="5 2 0 2"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
@@ -20,11 +20,11 @@
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="#3d3d3d"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource MouseOverBaseDataGridColumnHeaderBorderBrush}"/>
+                <Setter Property="BorderBrush" Value="#2d2f32"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{DynamicResource IsPressedBaseDataGridColumnHeaderBackgroundBrush}"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource IsPressedBaseDataGridColumnHeaderBorderBrush}"/>
+                <Setter Property="Background" Value="#36414a"/>
+                <Setter Property="BorderBrush" Value="#2d2f32"/>
                 <Setter Property="BorderThickness" Value="1"/>
                 <Setter Property="Padding" Value="5 2 0 0"/>
             </Trigger>
@@ -34,7 +34,7 @@
 
     <Style x:Key="{x:Type DataGridCell}" TargetType="DataGridCell">
         <Setter Property="Background" Value="#2e2e2e"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BaseDataGridCellBorderBrush}"/>
+        <Setter Property="BorderBrush" Value="#36414A"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Padding" Value="0 2 2 0"/>
         <Setter Property="BorderThickness" Value="0 0 1 1"/>
@@ -51,13 +51,14 @@
 
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Background" Value="{DynamicResource IsSelectedBaseDataGridCellBackgroundBrush}"/>
-                <Setter Property="BorderBrush" Value="{DynamicResource IsSelectedBaseDataGridCellBorderBrush}"/>
+                <Setter Property="Background" Value="#35658E"/>
+                <Setter Property="BorderBrush" Value="#36414A"/>
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <Style x:Key="{x:Type DataGrid}" TargetType="DataGrid">
+        
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGrid}">
