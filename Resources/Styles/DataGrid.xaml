@@ -10,11 +10,11 @@
     </Style>
 
     <Style x:Key="{x:Type DataGridColumnHeader}" TargetType="DataGridColumnHeader">
-        <Setter Property="Background" Value="#1f1f1f"/>
+        <Setter Property="Background" Value="#2e2e2e"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="BorderBrush" Value="#2d2f32"/>
         <Setter Property="BorderThickness" Value="0 0 1 0"/>
-        <Setter Property="Padding" Value="5 2 0 2"/>
+        <Setter Property="Padding" Value="5 2 5 2"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
 
         <Style.Triggers>
@@ -58,7 +58,9 @@
     </Style>
 
     <Style x:Key="{x:Type DataGrid}" TargetType="DataGrid">
-        
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="GridLinesVisibility" Value="None"/>
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type DataGrid}">
