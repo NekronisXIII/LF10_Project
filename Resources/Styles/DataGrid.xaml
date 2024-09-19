@@ -31,7 +31,6 @@
         </Style.Triggers>
     </Style>
 
-
     <Style x:Key="{x:Type DataGridCell}" TargetType="DataGridCell">
         <Setter Property="Background" Value="#2e2e2e"/>
         <Setter Property="BorderBrush" Value="#36414A"/>
@@ -55,6 +54,10 @@
                 <Setter Property="BorderBrush" Value="#36414A"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
+
+    <Style x:Key="{x:Type DataGridRow}" TargetType="DataGridRow">
+        <Setter Property="Background" Value="Transparent"/>
     </Style>
 
     <Style x:Key="{x:Type DataGrid}" TargetType="DataGrid">
