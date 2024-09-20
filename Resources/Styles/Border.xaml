@@ -58,7 +58,23 @@
     </Style>
 
     <Style x:Key="RightMenuBarStyle" TargetType="Border">
+        <Setter Property="Margin" Value="0 0 -200 0"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="Background" Value="#2e2e2e"/>
+        <Setter Property="BorderThickness" Value="2 0 0 0"/>
+        <Setter Property="BorderBrush" Value="#0229bf"/>
+        <Setter Property="Effect">
+            <Setter.Value>
+                <DropShadowEffect x:Name="shadowEffect" ShadowDepth="3"
+							Direction="0"
+							Color="Black"
+							BlurRadius="20"
+							Opacity="0.8"/>
+            </Setter.Value>
+        </Setter>
         <Style.Triggers>
+            
             <DataTrigger Binding="{Binding UserMenu}" Value="True">
                 <DataTrigger.EnterActions>
                     <StopStoryboard BeginStoryboardName="MenuCloseAnimation"/>
@@ -82,7 +98,7 @@
                     <BeginStoryboard Name="MenuCloseAnimation">
                         <Storyboard>
                             <ThicknessAnimation Storyboard.TargetProperty="Margin"
-                                            To="0,0,-100,0"  
+                                            To="0,0,-200,0"  
                             Duration="0:0:0.5">
                                 <ThicknessAnimation.EasingFunction>
                                     <CubicEase EasingMode="EaseInOut"/>

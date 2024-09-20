@@ -46,9 +46,9 @@
 
         
         <Button Grid.RowSpan="2" Command="{Binding CloseOptionsCommand}" Style="{StaticResource OptionsShadowButtonStyle}"/>
-        <Button Grid.RowSpan="2" Command="{Binding ToggleUserMenuCommand}" Style="{StaticResource UserMenuShadowButtonStyle}"/>
+        <Button Grid.RowSpan="2" Command="{Binding ToggleUserMenuCommand}" Style="{StaticResource UserShadowButtonStyle}"/>
 
-        <Border Grid.RowSpan="2" Style="{StaticResource RightMenuBarStyle}" HorizontalAlignment="Right" Width="100" Background="DarkGray">
+        <Border Grid.RowSpan="2" Style="{StaticResource RightMenuBarStyle}" >
             <StackPanel Margin="5">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <Label  Content="{Binding Username}" Foreground="White" HorizontalAlignment="Right"></Label>
