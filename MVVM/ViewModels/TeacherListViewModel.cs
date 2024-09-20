@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LF10_Project.MVVM.Models;
+using CommunityToolkit.Mvvm.Input;
 
 namespace LF10_Project.MVVM.ViewModels
 {
@@ -15,6 +16,12 @@ namespace LF10_Project.MVVM.ViewModels
 
         [ObservableProperty]
         private ObservableCollection<Teacher> _teacher = new();
+
+        [ObservableProperty]
+        private ObservableCollection<Teacher> _filteredTeacher = new();
+
+        [ObservableProperty]
+        private string _search = "";
         public TeacherListViewModel()
         {
             Teacher.Add(new Teacher("Emma", "Stone", "Emma.Stone@gmail.com"));
@@ -49,6 +56,35 @@ namespace LF10_Project.MVVM.ViewModels
             Teacher.Add(new Teacher("Oliver", "Walker", "Oliver.Walker@gmail.com"));
             Teacher.Add(new Teacher("Emily", "Young", "Emily.Young@gmail.com"));
 
+            List<Teacher> sortedTeachers = Teacher.OrderBy(t => t.FirstName).ToList();
+
+            Teacher = new(sortedTeachers);
+            FilteredTeacher = new(Teacher);
+
+        }
+
+        partial void OnSearchChanged(string value)
+        {
+            SearchList();
+        }
+
+        [RelayCommand]
+        public void SearchList()
+        {
+            FilteredTeacher = Teacher;
+            //Need to cast to list cause of Findmethod
+            List<Teacher> teachers = new List<Teacher>(FilteredTeacher);
+
+            teachers = teachers.FindAll(
+                delegate (Teacher teacher)
+                {
+                    return teacher.FirstName.ToLower().Contains(Search.ToLower()) ||
+                    teacher.LastName.ToLower().Contains(Search.ToLower()) ||
+                    teacher.MailAdress.ToLower().Contains(Search.ToLower());
+                    ;
+                }
+            );
+            FilteredTeacher = new ObservableCollection<Teacher>(teachers);
         }
 
     }

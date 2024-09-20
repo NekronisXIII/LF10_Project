@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LF10_Project.MVVM.Models;
+using static System.Reflection.Metadata.BlobBuilder;
+using CommunityToolkit.Mvvm.Input;
 
 namespace LF10_Project.MVVM.ViewModels
 {
@@ -14,7 +16,13 @@ namespace LF10_Project.MVVM.ViewModels
 
         [ObservableProperty]
         private ObservableCollection<Grade> _gradeEntry = new();
-        
+
+        [ObservableProperty]
+        private ObservableCollection<Grade> _filteredGradeEntry = new();
+
+        [ObservableProperty]
+        private string _search = "";
+
         public GradesViewModel()
         {
             GradeEntry.Add(new Grade(5, "Mathematik", "Emma.Stone@web.de"));
@@ -47,7 +55,35 @@ namespace LF10_Project.MVVM.ViewModels
             GradeEntry.Add(new Grade(1, "Latein", "Jackson.Lewis@web.de"));
             GradeEntry.Add(new Grade(6, "Deutsch", "Scarlett.Robinson@web.de"));
             GradeEntry.Add(new Grade(4, "English", "Oliver.Walker@web.de"));
+            List<Grade> sortedGrade = GradeEntry.OrderBy(t => t.Subject).ToList();
+            
+            GradeEntry = new(sortedGrade);
+            FilteredGradeEntry = GradeEntry;
 
+        }
+
+        partial void OnSearchChanged(string value)
+        {
+            SearchList();
+        }
+
+        [RelayCommand]
+        public void SearchList()
+        {
+            FilteredGradeEntry = GradeEntry;
+            //Need to cast to list cause of Findmethod
+            List<Grade> grades = new List<Grade>(FilteredGradeEntry);
+
+            grades = grades.FindAll(
+                delegate (Grade grade)
+                {
+                    return grade.Subject.ToLower().Contains(Search.ToLower()) ||
+                    grade.MailAdress.ToLower().Contains(Search.ToLower()) ||
+                    grade.GradeValue.ToString().Contains(Search);
+                    ;
+                }
+            );
+            FilteredGradeEntry = new ObservableCollection<Grade>(grades) ;
         }
 
     }

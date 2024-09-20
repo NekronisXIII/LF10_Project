@@ -13,9 +13,22 @@
         <TextBlock x:Key="EmailTextBlock" TextTrimming="CharacterEllipsis" Text="E-Mail"/>
     </UserControl.Resources>
     <Grid Margin="0">
-        <DataGrid CanUserSortColumns="False" HeadersVisibility="Column" 
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="25"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" Content="Suche"></Label>
+            <TextBox Grid.Column="1" Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch"></TextBox>
+        </Grid>
+
+        <DataGrid Grid.Row="1" CanUserSortColumns="False" HeadersVisibility="Column" 
 					  VirtualizingStackPanel.IsVirtualizing="False" VerticalGridLinesBrush="#A0A0A0"  
-					  HorizontalGridLinesBrush="#A0A0A0" CanUserResizeRows="False" ItemsSource="{Binding Teacher}" AutoGenerateColumns="False"
+					  HorizontalGridLinesBrush="#A0A0A0" CanUserResizeRows="False" ItemsSource="{Binding FilteredTeacher}" AutoGenerateColumns="False"
                     CanUserReorderColumns="False" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="{StaticResource FirstNameTextBlock}" IsReadOnly="true" Binding="{Binding FirstName}" ElementStyle="{StaticResource DataGridTextColumnElementStyle}"/>
