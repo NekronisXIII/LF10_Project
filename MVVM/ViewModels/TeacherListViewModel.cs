@@ -33,44 +33,12 @@ namespace LF10_Project.MVVM.ViewModels
 
         public TeacherListViewModel()
         {
-            Teacher.Add(new Teacher("Emma", "Stone", "Emma.Stone@gmail.com"));
-            Teacher.Add(new Teacher("John", "Doe", "John.Doe@gmail.com"));
-            Teacher.Add(new Teacher("Olivia", "Smith", "Olivia.Smith@gmail.com"));
-            Teacher.Add(new Teacher("Liam", "Johnson", "Liam.Johnson@gmail.com"));
-            Teacher.Add(new Teacher("Sophia", "Brown", "Sophia.Brown@gmail.com"));
-            Teacher.Add(new Teacher("Noah", "Williams", "Noah.Williams@gmail.com"));
-            Teacher.Add(new Teacher("Isabella", "Jones", "Isabella.Jones@gmail.com"));
-            Teacher.Add(new Teacher("Mason", "Garcia", "Mason.Garcia@gmail.com"));
-            Teacher.Add(new Teacher("Ava", "Martinez", "Ava.Martinez@gmail.com"));
-            Teacher.Add(new Teacher("Logan", "Rodriguez", "Logan.Rodriguez@gmail.com"));
-            Teacher.Add(new Teacher("Mia", "Hernandez", "Mia.Hernandez@gmail.com"));
-            Teacher.Add(new Teacher("Lucas", "Lopez", "Lucas.Lopez@gmail.com"));
-            Teacher.Add(new Teacher("Charlotte", "Gonzalez", "Charlotte.Gonzalez@gmail.com"));
-            Teacher.Add(new Teacher("Elijah", "Wilson", "Elijah.Wilson@gmail.com"));
-            Teacher.Add(new Teacher("Amelia", "Anderson", "Amelia.Anderson@gmail.com"));
-            Teacher.Add(new Teacher("James", "Thomas", "James.Thomas@gmail.com"));
-            Teacher.Add(new Teacher("Harper", "Taylor", "Harper.Taylor@gmail.com"));
-            Teacher.Add(new Teacher("Alexander", "Moore", "Alexander.Moore@gmail.com"));
-            Teacher.Add(new Teacher("Evelyn", "Jackson", "Evelyn.Jackson@gmail.com"));
-            Teacher.Add(new Teacher("Ethan", "Martin", "Ethan.Martin@gmail.com"));
-            Teacher.Add(new Teacher("Abigail", "Lee", "Abigail.Lee@gmail.com"));
-            Teacher.Add(new Teacher("Benjamin", "Perez", "Benjamin.Perez@gmail.com"));
-            Teacher.Add(new Teacher("Sofia", "White", "Sofia.White@gmail.com"));
-            Teacher.Add(new Teacher("Henry", "Thompson", "Henry.Thompson@gmail.com"));
-            Teacher.Add(new Teacher("Ella", "Sanchez", "Ella.Sanchez@gmail.com"));
-            Teacher.Add(new Teacher("Sebastian", "Clark", "Sebastian.Clark@gmail.com"));
-            Teacher.Add(new Teacher("Avery", "Ramirez", "Avery.Ramirez@gmail.com"));
-            Teacher.Add(new Teacher("Jackson", "Lewis", "Jackson.Lewis@gmail.com"));
-            Teacher.Add(new Teacher("Scarlett", "Robinson", "Scarlett.Robinson@gmail.com"));
-            Teacher.Add(new Teacher("Oliver", "Walker", "Oliver.Walker@gmail.com"));
-            Teacher.Add(new Teacher("Emily", "Young", "Emily.Young@gmail.com"));
-
+            Teacher = SetTeacher();
             List<Teacher> sortedTeachers = Teacher.OrderBy(t => t.FirstName).ToList();
 
             Teacher = new(sortedTeachers);
             FilteredTeacher = new(Teacher);
             UpdateMeshes(sortedTeachers.Count());
-
         }
 
         partial void OnSearchChanged(string value)
@@ -96,6 +64,44 @@ namespace LF10_Project.MVVM.ViewModels
             );
             FilteredTeacher = new ObservableCollection<Teacher>(teachers);
             UpdateMeshes(teachers.Count());
+        }
+
+        public ObservableCollection<Teacher> SetTeacher()
+        {
+            ObservableCollection<Teacher> teacher = new ObservableCollection<Teacher>();
+            teacher.Add(new Teacher("Emma", "Stone", "Emma.Stone@gmail.com"));
+            teacher.Add(new Teacher("John", "Doe", "John.Doe@gmail.com"));
+            teacher.Add(new Teacher("Olivia", "Smith", "Olivia.Smith@gmail.com"));
+            teacher.Add(new Teacher("Liam", "Johnson", "Liam.Johnson@gmail.com"));
+            teacher.Add(new Teacher("Sophia", "Brown", "Sophia.Brown@gmail.com"));
+            teacher.Add(new Teacher("Noah", "Williams", "Noah.Williams@gmail.com"));
+            teacher.Add(new Teacher("Isabella", "Jones", "Isabella.Jones@gmail.com"));
+            teacher.Add(new Teacher("Mason", "Garcia", "Mason.Garcia@gmail.com"));
+            teacher.Add(new Teacher("Ava", "Martinez", "Ava.Martinez@gmail.com"));
+            teacher.Add(new Teacher("Logan", "Rodriguez", "Logan.Rodriguez@gmail.com"));
+            teacher.Add(new Teacher("Mia", "Hernandez", "Mia.Hernandez@gmail.com"));
+            teacher.Add(new Teacher("Lucas", "Lopez", "Lucas.Lopez@gmail.com"));
+            teacher.Add(new Teacher("Charlotte", "Gonzalez", "Charlotte.Gonzalez@gmail.com"));
+            teacher.Add(new Teacher("Elijah", "Wilson", "Elijah.Wilson@gmail.com"));
+            teacher.Add(new Teacher("Amelia", "Anderson", "Amelia.Anderson@gmail.com"));
+            teacher.Add(new Teacher("James", "Thomas", "James.Thomas@gmail.com"));
+            teacher.Add(new Teacher("Harper", "Taylor", "Harper.Taylor@gmail.com"));
+            teacher.Add(new Teacher("Alexander", "Moore", "Alexander.Moore@gmail.com"));
+            teacher.Add(new Teacher("Evelyn", "Jackson", "Evelyn.Jackson@gmail.com"));
+            teacher.Add(new Teacher("Ethan", "Martin", "Ethan.Martin@gmail.com"));
+            teacher.Add(new Teacher("Abigail", "Lee", "Abigail.Lee@gmail.com"));
+            teacher.Add(new Teacher("Benjamin", "Perez", "Benjamin.Perez@gmail.com"));
+            teacher.Add(new Teacher("Sofia", "White", "Sofia.White@gmail.com"));
+            teacher.Add(new Teacher("Henry", "Thompson", "Henry.Thompson@gmail.com"));
+            teacher.Add(new Teacher("Ella", "Sanchez", "Ella.Sanchez@gmail.com"));
+            teacher.Add(new Teacher("Sebastian", "Clark", "Sebastian.Clark@gmail.com"));
+            teacher.Add(new Teacher("Avery", "Ramirez", "Avery.Ramirez@gmail.com"));
+            teacher.Add(new Teacher("Jackson", "Lewis", "Jackson.Lewis@gmail.com"));
+            teacher.Add(new Teacher("Scarlett", "Robinson", "Scarlett.Robinson@gmail.com"));
+            teacher.Add(new Teacher("Oliver", "Walker", "Oliver.Walker@gmail.com"));
+            teacher.Add(new Teacher("Emily", "Young", "Emily.Young@gmail.com"));
+            return teacher;
+            
         }
 
         private void UpdateMeshes(int count)

@@ -95,8 +95,11 @@
                                             Background="#5a5a5a" 
                                             Visibility="{Binding Type, Converter={StaticResource SubjectTypeToVisibilityConverter}}" 
                                             Height="{Binding Type, Converter={StaticResource SubjectTypeToIntConverter}}">
-                                        <StackPanel Margin="5 5 0 0">
-                                            <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding SubjectName}" />
+                                        <StackPanel Margin="5 5 5 0">
+                                            <Grid HorizontalAlignment="Stretch">
+                                                <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding SubjectName}" HorizontalAlignment="Left"/>
+                                                <TextBlock TextTrimming="CharacterEllipsis" ToolTip="{Binding Teacher}" Text="{Binding Teacher, Converter={StaticResource StringToAbbreviationConverter}}" HorizontalAlignment="Right"/>
+                                            </Grid>
                                             <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding SubjectLocation}" />
                                         </StackPanel>
                                     </Border>

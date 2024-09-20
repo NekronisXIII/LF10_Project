@@ -4,4 +4,5 @@
 
     <local:SubjectTypeToIntConverter x:Key="SubjectTypeToIntConverter"/>
     <local:SubjectTypeToVisibilityConverter x:Key="SubjectTypeToVisibilityConverter"/>
+    <local:StringToAbbreviationConverter x:Key="StringToAbbreviationConverter"/>
 </ResourceDictionary>

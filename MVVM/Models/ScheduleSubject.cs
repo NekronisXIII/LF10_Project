@@ -16,10 +16,11 @@ namespace LF10_Project.MVVM.Models
             Type = duration;
         }
 
-        public ScheduleSubject(string name, string location, SubjectType duration) 
+        public ScheduleSubject(string name, string location,string teacher, SubjectType duration) 
         {
             SubjectName = name;
             SubjectLocation = location;
+            Teacher = teacher;
             Type = duration;
         }
         #endregion
@@ -28,6 +29,8 @@ namespace LF10_Project.MVVM.Models
         #region Properties
         public string SubjectName { get; set; } = String.Empty;
         public string SubjectLocation { get; set; } = String.Empty;
+
+        public string Teacher {  get; set; } = String.Empty;
 
         public SubjectType Type { get;}
         #endregion
