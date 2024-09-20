@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using LF10_Project.MVVM.Models;
 using static System.Reflection.Metadata.BlobBuilder;
 using CommunityToolkit.Mvvm.Input;
+using System.Windows.Media;
 
 namespace LF10_Project.MVVM.ViewModels
 {
@@ -22,6 +23,12 @@ namespace LF10_Project.MVVM.ViewModels
 
         [ObservableProperty]
         private string _search = "";
+
+        [ObservableProperty]
+        private string _matches = "";
+
+        [ObservableProperty]
+        private SolidColorBrush _matchesBrush;
 
         public GradesViewModel()
         {
@@ -58,17 +65,18 @@ namespace LF10_Project.MVVM.ViewModels
             List<Grade> sortedGrade = GradeEntry.OrderBy(t => t.Subject).ToList();
             
             GradeEntry = new(sortedGrade);
+
             FilteredGradeEntry = GradeEntry;
 
+            UpdateMeshes(sortedGrade.Count());
         }
 
         partial void OnSearchChanged(string value)
         {
-            SearchList();
+            SearchList(value);
         }
 
-        [RelayCommand]
-        public void SearchList()
+        public void SearchList(string Search)
         {
             FilteredGradeEntry = GradeEntry;
             //Need to cast to list cause of Findmethod
@@ -84,6 +92,22 @@ namespace LF10_Project.MVVM.ViewModels
                 }
             );
             FilteredGradeEntry = new ObservableCollection<Grade>(grades) ;
+
+
+            UpdateMeshes(grades.Count());
+
+        }
+
+        private void UpdateMeshes(int count)
+        {
+            if (count > 0)
+            {
+                Matches = "Suchergebnisse: " + count;
+                MatchesBrush = new SolidColorBrush(Colors.LightGreen);
+                return;
+            }
+            Matches = "Keine Suchergebnisse";
+            MatchesBrush = new SolidColorBrush(Colors.Red);
         }
 
     }

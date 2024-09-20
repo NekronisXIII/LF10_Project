@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using LF10_Project.MVVM.Models;
 using CommunityToolkit.Mvvm.Input;
+using System.Text.RegularExpressions;
+using System.Windows.Media;
 
 namespace LF10_Project.MVVM.ViewModels
 {
@@ -22,6 +24,13 @@ namespace LF10_Project.MVVM.ViewModels
 
         [ObservableProperty]
         private string _search = "";
+
+        [ObservableProperty]
+        private string _matches = "";
+
+        [ObservableProperty]
+        private SolidColorBrush _matchesBrush;
+
         public TeacherListViewModel()
         {
             Teacher.Add(new Teacher("Emma", "Stone", "Emma.Stone@gmail.com"));
@@ -60,6 +69,7 @@ namespace LF10_Project.MVVM.ViewModels
 
             Teacher = new(sortedTeachers);
             FilteredTeacher = new(Teacher);
+            UpdateMeshes(sortedTeachers.Count());
 
         }
 
@@ -85,6 +95,19 @@ namespace LF10_Project.MVVM.ViewModels
                 }
             );
             FilteredTeacher = new ObservableCollection<Teacher>(teachers);
+            UpdateMeshes(teachers.Count());
+        }
+
+        private void UpdateMeshes(int count)
+        {
+            if (count > 0)
+            {
+                Matches = "Suchergebnisse: " + count;
+                MatchesBrush = new SolidColorBrush(Colors.LightGreen);
+                return;
+            }
+            Matches = "Keine Suchergebnisse";
+            MatchesBrush = new SolidColorBrush(Colors.Red);
         }
 
     }

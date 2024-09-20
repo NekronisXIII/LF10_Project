@@ -21,9 +21,11 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50"/>
                 <ColumnDefinition Width="150"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Label Grid.Column="0" Content="Suche"></Label>
-            <TextBox Grid.Column="1" Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch"></TextBox>
+            <TextBox Height="20" Grid.Column="1" Text="{Binding Search, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch"></TextBox>
+            <TextBlock Grid.Column="2" Text="{Binding Matches}" Padding="4" Foreground="{Binding MatchesBrush}"></TextBlock>
         </Grid>
         <DataGrid Grid.Row="1" CanUserSortColumns="False" HeadersVisibility="Column" 
 					  VirtualizingStackPanel.IsVirtualizing="False" VerticalGridLinesBrush="#A0A0A0"  
