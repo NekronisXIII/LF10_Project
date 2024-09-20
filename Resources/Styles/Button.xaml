@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style x:Key="OptionsShadowButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="Black"/>
-        <Setter Property="Visibility" Value="Collapsed"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Opacity" Value="0"/>
         <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -42,8 +41,10 @@
                         </Storyboard>
                     </BeginStoryboard>
                 </DataTrigger.EnterActions>
-                <Setter Property="Visibility" Value="Collapsed"/>
             </DataTrigger>
+            <Trigger Property="Opacity" Value="0">
+                <Setter Property="Visibility" Value="Hidden"/>
+            </Trigger>
         </Style.Triggers>
     </Style>
 

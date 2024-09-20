@@ -6,12 +6,21 @@
              xmlns:local="clr-namespace:LF10_Project.MVVM.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <TextBlock x:Key="GradeTextBlock" TextTrimming="CharacterEllipsis" Text="Note"/>
+        <TextBlock x:Key="SubjectTextBlock" TextTrimming="CharacterEllipsis" Text="Fach"/>
+        <TextBlock x:Key="TeacherTextBlock" TextTrimming="CharacterEllipsis" Text="Lehrer"/>
+    </UserControl.Resources>
+    
     <Grid Margin="0">
-        <DataGrid ItemsSource="{Binding GradeEntry}" AutoGenerateColumns="False">
+        <DataGrid CanUserSortColumns="False" HeadersVisibility="Column" 
+					  VirtualizingStackPanel.IsVirtualizing="False" VerticalGridLinesBrush="#A0A0A0"  
+					  HorizontalGridLinesBrush="#A0A0A0" CanUserResizeRows="False" ItemsSource="{Binding GradeEntry}" AutoGenerateColumns="False"
+                    CanUserReorderColumns="False" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Note" Binding="{Binding GradeValue}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Fach" Binding="{Binding Subject}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Lehrer" Binding="{Binding MailAdress}"></DataGridTextColumn>
+                <DataGridTextColumn Header="{StaticResource GradeTextBlock}" IsReadOnly="False" Binding="{Binding GradeValue}" ElementStyle="{StaticResource DataGridTextColumnElementStyle}"/>
+                <DataGridTextColumn Header="{StaticResource SubjectTextBlock}" IsReadOnly="False" Binding="{Binding Subject}" ElementStyle="{StaticResource DataGridTextColumnElementStyle}"/>
+                <DataGridTextColumn Header="{StaticResource TeacherTextBlock}" Width="*" IsReadOnly="False" Binding="{Binding MailAdress}" ElementStyle="{StaticResource DataGridTextColumnElementStyle}"/>
 
             </DataGrid.Columns>
         </DataGrid>

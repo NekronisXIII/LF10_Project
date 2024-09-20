@@ -6,15 +6,21 @@
              xmlns:local="clr-namespace:LF10_Project.MVVM.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <TextBlock x:Key="FirstNameTextBlock" TextTrimming="CharacterEllipsis" Text="Vorname"/>
+        <TextBlock x:Key="LastNameTextBlock" TextTrimming="CharacterEllipsis" Text="Nachname"/>
+        <TextBlock x:Key="EmailTextBlock" TextTrimming="CharacterEllipsis" Text="E-Mail"/>
+    </UserControl.Resources>
     <Grid Margin="0">
         <DataGrid CanUserSortColumns="False" HeadersVisibility="Column" 
 					  VirtualizingStackPanel.IsVirtualizing="False" VerticalGridLinesBrush="#A0A0A0"  
 					  HorizontalGridLinesBrush="#A0A0A0" CanUserResizeRows="False" ItemsSource="{Binding Teacher}" AutoGenerateColumns="False"
                     CanUserReorderColumns="False" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Vorname" IsReadOnly="true" Binding="{Binding FirstName}"/>
-                <DataGridTextColumn Header="Nachname" IsReadOnly="true" Binding="{Binding LastName}"/>
-                <DataGridTextColumn Width="*" Header="E-Mail" IsReadOnly="true" Binding="{Binding MailAdress}"/>
+                <DataGridTextColumn Header="{StaticResource FirstNameTextBlock}" IsReadOnly="true" Binding="{Binding FirstName}" ElementStyle="{StaticResource DataGridTextColumnElementStyle}"/>
+                <DataGridTextColumn Header="{StaticResource LastNameTextBlock}" IsReadOnly="true" Binding="{Binding LastName}" ElementStyle="{StaticResource DataGridTextColumnElementStyle}"/>
+                <DataGridTextColumn Header="{StaticResource EmailTextBlock}" Width="*" IsReadOnly="true" Binding="{Binding MailAdress}" ElementStyle="{StaticResource DataGridTextColumnElementStyle}"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
