@@ -1,0 +1,141 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<ControlTemplate x:Key="CustomScrollBarThumb" TargetType="Thumb">
+		<Border Background="#A0A0A0" CornerRadius="3" Width="2" Margin="0,0,6,0" HorizontalAlignment="Right">
+			<Border.Style>
+				<Style TargetType="Border">
+					<Style.Triggers>
+						<DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType=ScrollBar}}" Value="true">
+							<DataTrigger.EnterActions>
+								<BeginStoryboard>
+									<Storyboard>
+										<DoubleAnimation 
+												Storyboard.TargetProperty="Width"
+												To="5" Duration="0:0:0.15">
+										</DoubleAnimation>
+									</Storyboard>
+								</BeginStoryboard>
+							</DataTrigger.EnterActions>
+							<DataTrigger.ExitActions>
+								<BeginStoryboard>
+									<Storyboard>
+										<DoubleAnimation 
+												Storyboard.TargetProperty="Width"
+												To="2" BeginTime="0:0:0.5" Duration="0:0:0.15">
+										</DoubleAnimation>
+									</Storyboard>
+								</BeginStoryboard>
+							</DataTrigger.ExitActions>
+						</DataTrigger>
+					</Style.Triggers>
+				</Style>
+			</Border.Style>
+		</Border>
+	</ControlTemplate>
+
+	<ControlTemplate x:Key="ScrollRepeatButton" TargetType="RepeatButton">
+		<Grid x:Name="TriangleGrid" Background="Transparent">
+			<Path 
+					x:Name="TrianglePath"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Center"
+					Data="{Binding Content, 
+					RelativeSource={RelativeSource TemplatedParent}}"
+					Fill="#A0A0A0"/>
+		</Grid>
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsPressed" Value="True">
+				<Setter TargetName="TriangleGrid" Property="Width" Value="6"/>
+			</Trigger>
+			<Trigger Property="IsMouseOver" Value="True">
+				<Setter TargetName="TrianglePath" Property="Fill" Value="#CFCFCF"/>
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+
+	<Style x:Key="{x:Type ScrollBar}" TargetType="ScrollBar">
+
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ScrollBar">
+					<Grid>
+						<Border x:Name="ScrollBarBackground" Opacity="0" Background="#2C2C2C" Width="13" CornerRadius="7"/>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="auto"/>
+								<RowDefinition/>
+								<RowDefinition Height="auto"/>
+							</Grid.RowDefinitions>
+
+							<RepeatButton x:Name="ScrollUpRepeatButton" Opacity="0" Template="{StaticResource ScrollRepeatButton}" Grid.Row="0" Height="18"  Command="ScrollBar.LineUpCommand" Content="M 0 4 L 8 4 L 4 0 Z" />
+
+							<Track x:Name="PART_Track" Grid.Row="1" IsDirectionReversed="True">
+								<Track.DecreaseRepeatButton>
+									<RepeatButton Opacity="0" Command="ScrollBar.LineUpCommand"/>
+								</Track.DecreaseRepeatButton>
+								<Track.Thumb>
+									<Thumb Template="{StaticResource CustomScrollBarThumb}"/>
+								</Track.Thumb>
+								<Track.IncreaseRepeatButton>
+									<RepeatButton Opacity="0" Command="ScrollBar.LineDownCommand"/>
+								</Track.IncreaseRepeatButton>
+							</Track>
+							<RepeatButton x:Name="ScrollDownRepeatButton" Opacity="0" Template="{StaticResource ScrollRepeatButton}" Grid.Row="2" Height="18" Command="ScrollBar.LineDownCommand" Content="M 0 0 L 4 4 L 8 0 Z"/>
+						</Grid>
+					</Grid>
+
+					<ControlTemplate.Triggers>
+						<DataTrigger Binding="{Binding IsMouseOver, RelativeSource={RelativeSource Self}}" Value="true">
+							<DataTrigger.EnterActions>
+								<BeginStoryboard>
+									<Storyboard>
+										<DoubleAnimation 
+									Storyboard.TargetName="ScrollBarBackground"
+									Storyboard.TargetProperty="Opacity"
+									To="1" BeginTime="0:0:0.1" Duration="0:0:0.15">
+										</DoubleAnimation>
+										<DoubleAnimation 
+									Storyboard.TargetName="ScrollUpRepeatButton"
+									Storyboard.TargetProperty="Opacity"
+									To="1" BeginTime="0:0:0.1" Duration="0:0:0.15">
+										</DoubleAnimation>
+										<DoubleAnimation 
+									Storyboard.TargetName="ScrollDownRepeatButton"
+									Storyboard.TargetProperty="Opacity"
+									To="1" BeginTime="0:0:0.1" Duration="0:0:0.15">
+										</DoubleAnimation>
+									</Storyboard>
+								</BeginStoryboard>
+							</DataTrigger.EnterActions>
+							<DataTrigger.ExitActions>
+								<BeginStoryboard>
+									<Storyboard>
+										<DoubleAnimation 
+									Storyboard.TargetName="ScrollBarBackground"
+									Storyboard.TargetProperty="Opacity"
+									To="0" BeginTime="0:0:0.5" Duration="0:0:0.15">
+										</DoubleAnimation>
+										<DoubleAnimation 
+									Storyboard.TargetName="ScrollUpRepeatButton"
+									Storyboard.TargetProperty="Opacity"
+									To="0" BeginTime="0:0:0.5" Duration="0:0:0.15">
+										</DoubleAnimation>
+										<DoubleAnimation 
+									Storyboard.TargetName="ScrollDownRepeatButton"
+									Storyboard.TargetProperty="Opacity"
+									To="0" BeginTime="0:0:0.5" Duration="0:0:0.15">
+										</DoubleAnimation>
+									</Storyboard>
+								</BeginStoryboard>
+							</DataTrigger.ExitActions>
+						</DataTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	
+	
+
+</ResourceDictionary>

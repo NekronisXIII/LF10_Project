@@ -1,113 +1,116 @@
 ﻿<Window x:Class="LF10_Project.MVVM.Views.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:LF10_Project.MVVM.Views"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800"
-        Closing="OnClosing">
-    <Grid Margin="0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:local="clr-namespace:LF10_Project.MVVM.Views"
+		mc:Ignorable="d"
+		Title="MainWindow" Height="600" Width="800"
+		Closing="OnClosing">
+	<Grid Margin="0">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
 
-        <ToolBar Padding="2">
-            <Button Content="Options" Command="{Binding OpenOptionsCommand}" Style="{StaticResource ToolBarButtonStyle}"/>
-        </ToolBar>
-        <Grid Height="30" HorizontalAlignment="Right">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/> 
+		<ToolBar Padding="2">
+			<Button Content="Options" Command="{Binding OpenOptionsCommand}" Style="{StaticResource ToolBarButtonStyle}"/>
+		</ToolBar>
+		<Grid Height="30" HorizontalAlignment="Right">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition/>
+				<ColumnDefinition/>
+				<ColumnDefinition/> 
 
-            </Grid.ColumnDefinitions>
+			</Grid.ColumnDefinitions>
 
-            <Image Grid.Column="1" Source="{StaticResource AccountImage}" HorizontalAlignment="Right"></Image>          
-            <Button Grid.Column="1" Background="Transparent" Content="" Command="{Binding ToggleUserMenuCommand}"/>
+			<Image Grid.Column="1" Source="{StaticResource AccountImage}" HorizontalAlignment="Right"></Image>          
+			<Button Grid.Column="1" Background="Transparent" Content="" Command="{Binding ToggleUserMenuCommand}"/>
   
 
-        </Grid>
+		</Grid>
 
-        <TabControl Grid.Row="1">
-            <TabItem Header="Noten">
-                <local:GradesUserControl/>
-            </TabItem>
-            <TabItem Header="Lehrer">
-                <local:TeacherListUserControl/>
-            </TabItem>
-            <TabItem Header="Stundenplan">
-                <local:ScheduleUserControl/>
-            </TabItem>
-            <TabItem Header="Einschulung">
-                <local:EnrollmentUserControl/>
-            </TabItem>
-        </TabControl>
+		<TabControl Grid.Row="1">
+			<TabItem Header="Noten">
+				<local:GradesUserControl/>
+			</TabItem>
+			<TabItem Header="Lehrer">
+				<local:TeacherListUserControl/>
+			</TabItem>
+			<TabItem Header="Stundenplan">
+				<local:ScheduleUserControl/>
+			</TabItem>
+			<TabItem Header="Einschulung">
+				<local:EnrollmentUserControl/>
+			</TabItem>
+		</TabControl>
 
-        
-        <Button Grid.RowSpan="2" Command="{Binding CloseOptionsCommand}" Style="{StaticResource OptionsShadowButtonStyle}"/>
-        <Button Grid.RowSpan="2" Command="{Binding ToggleUserMenuCommand}" Style="{StaticResource UserShadowButtonStyle}"/>
+		
+		<Button Grid.RowSpan="2" Command="{Binding CloseOptionsCommand}" Style="{StaticResource OptionsShadowButtonStyle}"/>
+		<Button Grid.RowSpan="2" Command="{Binding ToggleUserMenuCommand}" Style="{StaticResource UserShadowButtonStyle}"/>
 
-        <Border Grid.RowSpan="2" Style="{StaticResource RightMenuBarStyle}" >
-            <StackPanel Margin="5">
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Label  Content="{Binding Username}" Foreground="White" HorizontalAlignment="Right"></Label>
-                    <Image Source="{StaticResource AccountImage}" HorizontalAlignment="Right" Margin="0,0,7,0"></Image>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <Button Background="Transparent" Margin="0,0,5,0" Foreground="White" BorderBrush="Transparent"
-                            Command="{Binding LogoutCommand}" IsCancel="True" HorizontalAlignment="Right">
-                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                            <Label Content="Logout" Foreground="White"></Label>
-                            <Image Source="{StaticResource LogoutImage}" HorizontalAlignment="Right"></Image>
-                        </StackPanel>
-                    </Button>
-                </StackPanel>
-            </StackPanel>
-        </Border>
-        <Border Grid.RowSpan="2" Style="{StaticResource OptionsBorderStyle}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"></RowDefinition>
-                    <RowDefinition Height="auto"></RowDefinition>
-                    <RowDefinition Height="auto"></RowDefinition>
-                </Grid.RowDefinitions>
+		<Border Grid.RowSpan="2" Style="{StaticResource RightMenuBarStyle}" >
+			<StackPanel Margin="5">
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+					<Label  Content="{Binding Username}" Foreground="White" HorizontalAlignment="Right"></Label>
+					<Image Source="{StaticResource AccountImage}" HorizontalAlignment="Right" Margin="0,0,7,0"></Image>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+					<Button Background="Transparent" Margin="0,0,5,0" Foreground="White" BorderBrush="Transparent"
+							Command="{Binding LogoutCommand}" IsCancel="True" HorizontalAlignment="Right">
+						<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+							<Label Content="Logout" Foreground="White"></Label>
+							<Image Source="{StaticResource LogoutImage}" HorizontalAlignment="Right"></Image>
+						</StackPanel>
+					</Button>
+				</StackPanel>
+			</StackPanel>
+		</Border>
+		<Border Grid.RowSpan="2" Style="{StaticResource OptionsBorderStyle}">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="auto"></RowDefinition>
+					<RowDefinition Height="auto"></RowDefinition>
+					<RowDefinition Height="auto"></RowDefinition>
+					<RowDefinition Height="auto"></RowDefinition>
+					<RowDefinition Height="auto"></RowDefinition>
+					<RowDefinition Height="auto"></RowDefinition>
+				</Grid.RowDefinitions>
 
-                <ComboBox 
-                        Grid.Row="0"
-                        ItemsSource="{Binding TypeOfSchool}"
-                        HorizontalAlignment="Left"
-                        Height="20"
-                        Width="150"
-                        Margin="5"
-                        Text="Klasse"
-                        IsEditable="true"
-                        IsReadOnly="true"/>
-                
-                <ComboBox 
-                        Grid.Row="1"
-                        ItemsSource="{Binding TypeOfSchool}"
-                        HorizontalAlignment="Left"
-                        Height="20"
-                        Width="150"
-                        Margin="5"
-                        Text="Schulart"
-                        IsEditable="true"
-                        IsReadOnly="true"/>
+				<TextBlock Grid.Row="0" Text="Klasse:" Margin="5 5 0 0"/>
 
-                <ComboBox 
-                        Grid.Row="2"
-                        ItemsSource="{Binding TypeOfSchool}"
-                        HorizontalAlignment="Left"
-                        Height="20"
-                        Width="150"
-                        Margin="5"
-                        Text="Ausbildungslinie"
-                        IsEditable="true"
-                        IsReadOnly="true"/>
+				<ComboBox 
+						Grid.Row="1"
+						ItemsSource="{Binding TypeOfSchool}"
+						HorizontalAlignment="Left"
+						Height="20"
+						Width="150"
+						Margin="5"
+						IsReadOnly="true"/>
 
-            </Grid>
-        </Border>
-    </Grid>
+				<TextBlock Grid.Row="2" Text="Schulart:" Margin="5 5 0 0"/>
+
+				<ComboBox 
+						Grid.Row="3"
+						ItemsSource="{Binding TypeOfSchool}"
+						HorizontalAlignment="Left"
+						Height="20"
+						Width="150"
+						Margin="5"
+						IsReadOnly="true"/>
+
+				<TextBlock Grid.Row="4" Text="Ausbildungslinie:" Margin="5 5 0 0"/>
+				
+				<ComboBox 
+						Grid.Row="5"
+						ItemsSource="{Binding TypeOfSchool}"
+						HorizontalAlignment="Left"
+						Height="20"
+						Width="150"
+						Margin="5"
+						IsReadOnly="true"/>
+
+			</Grid>
+		</Border>
+	</Grid>
 </Window>
