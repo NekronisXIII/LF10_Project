@@ -56,4 +56,43 @@
             </DataTrigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="RightMenuBarStyle" TargetType="Border">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding UserMenu}" Value="True">
+                <DataTrigger.EnterActions>
+                    <StopStoryboard BeginStoryboardName="MenuCloseAnimation"/>
+                    <BeginStoryboard Name="MenuOpenAnimation">
+                        <Storyboard>
+                            <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                            To="0,0,0,0" 
+                            Duration="0:0:0.5">
+                                <ThicknessAnimation.EasingFunction>
+                                    <CubicEase EasingMode="EaseInOut"/>
+                                </ThicknessAnimation.EasingFunction>
+                            </ThicknessAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.EnterActions>
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding UserMenu}" Value="False">
+                <DataTrigger.EnterActions>
+                    <StopStoryboard BeginStoryboardName="MenuOpenAnimation"/>
+                    <BeginStoryboard Name="MenuCloseAnimation">
+                        <Storyboard>
+                            <ThicknessAnimation Storyboard.TargetProperty="Margin"
+                                            To="0,0,-100,0"  
+                            Duration="0:0:0.5">
+                                <ThicknessAnimation.EasingFunction>
+                                    <CubicEase EasingMode="EaseInOut"/>
+                                </ThicknessAnimation.EasingFunction>
+                            </ThicknessAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </DataTrigger.EnterActions>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>

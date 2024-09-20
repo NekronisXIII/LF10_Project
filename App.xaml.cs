@@ -29,7 +29,7 @@ namespace LF10_Project
 		#endregion
 
 		#region Private methods
-		private static IServiceProvider ConfigureServices()
+		public static IServiceProvider ConfigureServices()
 		{
 			var services = new ServiceCollection();
 
