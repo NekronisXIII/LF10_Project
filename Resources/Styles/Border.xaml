@@ -107,6 +107,7 @@
                         </Storyboard>
                     </BeginStoryboard>
                 </DataTrigger.EnterActions>
+                <Setter Property="Effect" Value="{x:Null}"/>
             </DataTrigger>
         </Style.Triggers>
     </Style>
