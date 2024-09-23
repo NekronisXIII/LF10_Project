@@ -7,6 +7,11 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="0">
-        <Label Content="Einschulungsinfos"></Label>
+        <RichTextBox x:Name="enrollmentRichTextBox" 
+                     Background="#2e2e2e" 
+                     Foreground="White"  
+                     BorderThickness="0" 
+                     IsReadOnly="True"
+                     VerticalScrollBarVisibility="Auto"/>
     </Grid>
 </UserControl>

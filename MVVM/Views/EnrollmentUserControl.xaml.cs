@@ -2,7 +2,9 @@
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,6 +29,18 @@ namespace LF10_Project.MVVM.Views
             DataContext = App.Instance.ServiceProvider.GetRequiredService<TeacherListViewModel>();
             InitializeComponent();
 
-        }
+            SetupControls();
+		}
+
+        private void SetupControls()
+        {
+			var documentBytes = Encoding.UTF8.GetBytes(Properties.Resources.Enrollment);
+			using (var reader = new MemoryStream(documentBytes))
+			{
+				enrollmentRichTextBox.Selection.Load(reader, DataFormats.Rtf);
+				enrollmentRichTextBox.CaretPosition = enrollmentRichTextBox.Document.ContentStart;
+				enrollmentRichTextBox.ScrollToHome();
+			}
+		}
     }
 }
