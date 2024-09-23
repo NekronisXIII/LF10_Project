@@ -8,8 +8,7 @@
                     <Grid Name="templateRoot" 
                           ClipToBounds="True" 
                           SnapsToDevicePixels="True" 
-                          KeyboardNavigation.TabNavigation="Local"
-                          Margin="0 -1 0 0">
+                          KeyboardNavigation.TabNavigation="Local">
 
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>

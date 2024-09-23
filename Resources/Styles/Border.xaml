@@ -67,7 +67,7 @@
         <Setter Property="Effect">
             <Setter.Value>
                 <DropShadowEffect x:Name="shadowEffect" ShadowDepth="3"
-							Direction="0"
+							Direction="180"
 							Color="Black"
 							BlurRadius="20"
 							Opacity="0.8"/>

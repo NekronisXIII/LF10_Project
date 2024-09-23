@@ -6,6 +6,7 @@
 		xmlns:local="clr-namespace:LF10_Project.MVVM.Views"
 		mc:Ignorable="d"
 		Title="MainWindow" Height="600" Width="800"
+		Background="#1f1f1f"
 		Closing="OnClosing">
 	<Grid Margin="0">
 		<Grid.RowDefinitions>
@@ -13,21 +14,21 @@
 			<RowDefinition/>
 		</Grid.RowDefinitions>
 
-		<ToolBar Padding="2">
-			<Button Content="Options" Command="{Binding OpenOptionsCommand}" Style="{StaticResource ToolBarButtonStyle}"/>
-		</ToolBar>
-		<Grid Height="30" HorizontalAlignment="Right">
+		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition/>
 				<ColumnDefinition/>
-				<ColumnDefinition/> 
-
 			</Grid.ColumnDefinitions>
 
-			<Image Grid.Column="1" Source="{StaticResource AccountImage}" HorizontalAlignment="Right"></Image>          
-			<Button Grid.Column="1" Background="Transparent" Content="" Command="{Binding ToggleUserMenuCommand}"/>
-  
+			<ToolBar Padding="2">
+				<Button Content="Options" Command="{Binding OpenOptionsCommand}" Style="{StaticResource ToolBarButtonStyle}"/>
+			</ToolBar>
 
+			<ToolBar Padding="2" Grid.Column="1" HorizontalContentAlignment="Right">
+				<Button Style="{StaticResource ToolBarButtonStyle}" Command="{Binding ToggleUserMenuCommand}">
+					<Image Grid.Column="1" Source="{StaticResource AccountImage}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="24" Height="24"/>
+				</Button>
+			</ToolBar>
 		</Grid>
 
 		<TabControl Grid.Row="1">
@@ -50,22 +51,28 @@
 		<Button Grid.RowSpan="2" Command="{Binding ToggleUserMenuCommand}" Style="{StaticResource UserShadowButtonStyle}"/>
 
 		<Border Grid.RowSpan="2" Style="{StaticResource RightMenuBarStyle}" >
-			<StackPanel Margin="5">
-				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-					<Label  Content="{Binding Username}" Foreground="White" HorizontalAlignment="Right"></Label>
-					<Image Source="{StaticResource AccountImage}" HorizontalAlignment="Right" Margin="0,0,7,0"></Image>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+
+				<StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="20">
+					<Image Source="{StaticResource AccountImage}" Height="50" Width="50"/>
+					<Label  Content="{Binding Username}" Foreground="White" HorizontalAlignment="Right"/>
 				</StackPanel>
-				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-					<Button Background="Transparent" Margin="0,0,5,0" Foreground="White" BorderBrush="Transparent"
-							Command="{Binding LogoutCommand}" IsCancel="True" HorizontalAlignment="Right">
-						<StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-							<Label Content="Logout" Foreground="White"></Label>
-							<Image Source="{StaticResource LogoutImage}" HorizontalAlignment="Right"></Image>
-						</StackPanel>
-					</Button>
-				</StackPanel>
-			</StackPanel>
+
+				<Button Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,5,5"
+					Command="{Binding LogoutCommand}">
+					<StackPanel Orientation="Horizontal">
+						<Label Content="Logout"/>
+						<Image Source="{StaticResource LogoutImage}" Width="24" Height="24"/>
+					</StackPanel>
+				</Button>
+			</Grid>
 		</Border>
+		
 		<Border Grid.RowSpan="2" Style="{StaticResource OptionsBorderStyle}">
 			<Grid>
 				<Grid.RowDefinitions>

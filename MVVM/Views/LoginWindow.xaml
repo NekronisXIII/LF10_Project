@@ -6,23 +6,27 @@
         xmlns:local="clr-namespace:LF10_Project.MVVM.Views"
         Background="#2E2E2E"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="250" Width="200" ResizeMode="NoResize">
+		WindowStartupLocation="CenterScreen"
+        Title="LoginWindow" Height="180" Width="200" ResizeMode="NoResize">
     <Grid >
     
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Content="Try again!" HorizontalAlignment="Center" Visibility="{Binding VisibilityWrongLoginLabel}"></Label>
-        <Label Grid.Row="1" Content="Name"></Label>
-        <TextBox Grid.Row="2" BorderBrush="{Binding BorderColorLoginField}" Text="{Binding Name}" Margin="5"></TextBox>
-        <Label Grid.Row="3" Content="Passwort"></Label>
-        <PasswordBox x:Name="PWBox" Password="unhashed" PasswordChar="*" BorderBrush="{Binding BorderColorLoginField}"  Grid.Row="4" Margin="5"/>
-        <Button Style="{StaticResource ToolBarButtonStyle}" BorderBrush="Gray" CommandParameter="{Binding ElementName=PWBox}" IsDefault="True" Command="{Binding LoginCommand}" Grid.Row="5" Content="Login" Margin="5" HorizontalAlignment="Right"></Button>
-    </Grid>
+		<TextBlock Margin="5 3 0 0" Grid.Row="0" Text="Name"/>
+		<TextBox Grid.Row="1" BorderBrush="{Binding BorderColorLoginField}" Text="{Binding Name}" Margin="5"></TextBox>
+		<TextBlock Margin="5 3 0 0" Grid.Row="2" Text="Passwort"></TextBlock>
+        <PasswordBox x:Name="PWBox" Password="unhashed" PasswordChar="*" BorderBrush="{Binding BorderColorLoginField}"  Grid.Row="3" Margin="5"/>
+		<Button CommandParameter="{Binding ElementName=PWBox}" 
+				IsDefault="True" 
+				Command="{Binding LoginCommand}" 
+				Grid.Row="4" Content="Login" Margin="5" 
+				HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+		<TextBlock Grid.Row="4" Text="Login fehlgeschlagen." Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5 0 0 12" Visibility="{Binding VisibilityWrongLoginLabel}"/>
+	</Grid>
 </Window>

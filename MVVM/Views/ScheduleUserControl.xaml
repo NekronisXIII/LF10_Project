@@ -30,8 +30,8 @@
                     <RowDefinition Height="45"/>
                     <RowDefinition Height="37"/>
                     <RowDefinition Height="47"/>
-                    <RowDefinition Height="47"/>
-                    <RowDefinition Height="010"/>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="10"/>
                 </Grid.RowDefinitions>
                 
                 <TextBlock Text="8:00" Margin="0 -5 0 0"/>
@@ -92,7 +92,7 @@
                                             Margin="4 2 4 2"
                                             BorderBrush="#0229bf" 
                                             BorderThickness="0 2 0 0" 
-                                            Background="#5a5a5a" 
+                                            Background="#4d4d4d" 
                                             Visibility="{Binding Type, Converter={StaticResource SubjectTypeToVisibilityConverter}}" 
                                             Height="{Binding Type, Converter={StaticResource SubjectTypeToIntConverter}}">
                                         <StackPanel Margin="5 5 5 0">

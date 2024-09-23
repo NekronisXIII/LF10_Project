@@ -14,5 +14,6 @@
         <ResourceDictionary Source="ToggleButton.xaml"/>
         <ResourceDictionary Source="ScrollBar.xaml"/>
         <ResourceDictionary Source="TextBox.xaml"/>
+        <ResourceDictionary Source="PasswordBox.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

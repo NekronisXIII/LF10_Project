@@ -12,10 +12,10 @@
                             Padding="{TemplateBinding Padding}">
                         <DockPanel>
 
-                            <Border Background="{TemplateBinding Background}" HorizontalAlignment="Left">
+							<Border Background="{TemplateBinding Background}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
                                 <ToolBarPanel x:Name="PART_ToolBarPanel"
                                           IsItemsHost="true"
-                                          Margin="0,1,2,2" />
+										  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
                             </Border>
 
                         </DockPanel>
