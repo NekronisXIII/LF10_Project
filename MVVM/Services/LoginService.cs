@@ -10,11 +10,11 @@ namespace LF10_Project.MVVM.Services
 {
     internal class LoginService : IAccountService
     {
-        public string Username { get; private set; } = string.Empty;
+        public Login? CurrentUser { get; private set; }
 
         public bool LoginUser(Login login)
         {
-            Username = login.Name;
+			CurrentUser = login;
             return true;
         }
     }

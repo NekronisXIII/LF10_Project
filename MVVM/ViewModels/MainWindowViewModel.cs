@@ -33,13 +33,33 @@ namespace LF10_Project.MVVM.ViewModels
         [ObservableProperty]
         private ObservableCollection<string> _typeOfSchool = new ObservableCollection<string>() { "Sonderschule", "Hauptschule", "Realschule", "Gymnasium" };
 
-        #endregion
+        private const string UnknownInfo = "unbekannt";
 
-        #region Methods
+		[ObservableProperty]
+		private string _class = UnknownInfo;
+		[ObservableProperty]
+		private string _school = UnknownInfo;
+		[ObservableProperty]
+		private string _eMail = UnknownInfo;
+		[ObservableProperty]
+		private string _residance = UnknownInfo;
+		[ObservableProperty]
+		private string _age = UnknownInfo;
+		[ObservableProperty]
+		private string _birthday = UnknownInfo;
+		#endregion
 
-        public MainWindowViewModel(IAccountService accountService) {
+		#region Methods
+
+		public MainWindowViewModel(IAccountService accountService) {
             _accountService = accountService;
-            Username = _accountService.Username;
+            Username = _accountService.CurrentUser.FullName;
+            Class = _accountService.CurrentUser.Class;
+            School = _accountService.CurrentUser.School;
+            EMail = _accountService.CurrentUser.EMail;
+            Residance = _accountService.CurrentUser.Residance;
+            Age = _accountService.CurrentUser.Age.ToString();
+            Birthday = _accountService.CurrentUser.Birthday.ToString();
         }
         #endregion
         #region Private methods
@@ -62,23 +82,23 @@ namespace LF10_Project.MVVM.ViewModels
             UserMenu = !UserMenu;
         }
 
-        #endregion
-        [RelayCommand]
-        void Logout()
-        {
-            App.Current.MainWindow.Close();
-            IServiceProvider _serviceProvider = App.ConfigureServices();
-            App.Current.ShutdownMode = ShutdownMode.OnExplicitShutdown;
-            var service = _serviceProvider.GetRequiredService<IAccountService>();
-            bool result = WindowManager.ShowDialog<LoginWindow>(App.Instance.ServiceProvider.GetRequiredService<LoginWindowViewModel>()) ?? false;
-            if (result)
-            {
-                App.Current.MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
-                App.Current.MainWindow.Show();
-                return;
-            }
+		[RelayCommand]
+		void Logout()
+		{
+			App.Current.MainWindow.Hide();
+			IServiceProvider _serviceProvider = App.ConfigureServices();
 
-            App.Current.Shutdown(0);
-        }
-    }
+			var service = _serviceProvider.GetRequiredService<IAccountService>();
+			bool result = WindowManager.ShowDialog<LoginWindow>(App.Instance.ServiceProvider.GetRequiredService<LoginWindowViewModel>()) ?? false;
+			if (result)
+			{
+				App.Current.MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
+				App.Current.MainWindow.Show();
+				return;
+			}
+
+			App.Current.Shutdown(0);
+		}
+		#endregion
+	}
 }

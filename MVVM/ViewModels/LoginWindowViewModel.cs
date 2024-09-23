@@ -17,43 +17,65 @@ using System.Xml.Linq;
 
 namespace LF10_Project.MVVM.ViewModels
 {
-    public partial class LoginWindowViewModel : ObservableObject
-    {
-        [ObservableProperty]
-        private string _name = "Manfred";
-        [ObservableProperty]
-        private string _password = "unhashed";
+	public partial class LoginWindowViewModel : ObservableObject
+	{
+		[ObservableProperty]
+		private string _name = "Manfred Müller";
+		
+		private string _password = "unhashed";
 
-        private IAccountService _accountService;
+		private IAccountService _accountService;
 
-        [ObservableProperty]
-        private Visibility _visibilityWrongLoginLabel = Visibility.Hidden;
+		[ObservableProperty]
+		private Visibility _visibilityWrongLoginLabel = Visibility.Hidden;
 
-        [ObservableProperty]
-        private Brush _borderColorLoginField = new SolidColorBrush(Colors.Black);
+		[ObservableProperty]
+		private Brush _borderColorLoginField = new SolidColorBrush(Colors.Black);
 
-        private List<Login> logins = new() { new Login() { Name = "Manfred", Password = "unhashed" }, new Login() { Name = "John", Password = "unhashed" } };
+		private List<Login> _logins = new();
 
-        public LoginWindowViewModel(IAccountService accountService) {
-            _accountService = accountService;
-        }
+		public LoginWindowViewModel(IAccountService accountService) {
+			_accountService = accountService;
+		}
 
-        [RelayCommand]
-        void Login(object parameter)
-        {
-            var pwbox = parameter as PasswordBox;
-            string pw = pwbox.Password;
+		[RelayCommand]
+		void Login(object parameter)
+		{
+			_logins.Add(new Login("Manfred", "Müller", "unhashed")
+			{
+				Age = 16,
+				Birthday = new DateOnly(2007, 9, 12),
+				EMail = "Manfred.Mueller@t-online.de",
+				Class = "10b",
+				School = "Max-Planck-Gymnasium",
+				ResidanceLand = "Deutschland",
+				ResidanceCity = "Hamburg"
+			});
 
-            foreach (var login in logins) {
-                if (login != null && login.Name.Equals(Name) && login.Password.Equals(Password) ){
-                    _accountService.LoginUser(login);
-                    WindowManager.CloseWindow<LoginWindow>(true);
-                    return;
-                }
-            }
-            VisibilityWrongLoginLabel = Visibility.Visible;
-            BorderColorLoginField = new SolidColorBrush(Colors.Red);
+			_logins.Add(new Login("John", "Schmidt", "unhashed")
+			{
+				Age = 17,
+				Birthday = new DateOnly(2006, 2, 5),
+				EMail = "John.Schmidt@gmail.com",
+				Class = "11a",
+				School = "Albert-Einstein-Gymnasium",
+				ResidanceLand = "Deutschland",
+				ResidanceCity = "Berlin"
+			});
 
-        }
-    }
+			var pwbox = parameter as PasswordBox;
+			string pw = pwbox.Password;
+
+			foreach (var login in _logins) {
+				if (login != null && login.FullName.Equals(Name) && login.Password.Equals(_password) ){
+					_accountService.LoginUser(login);
+					WindowManager.CloseWindow<LoginWindow>(true);
+					return;
+				}
+			}
+			VisibilityWrongLoginLabel = Visibility.Visible;
+			BorderColorLoginField = new SolidColorBrush(Colors.Red);
+
+		}
+	}
 }

@@ -9,7 +9,7 @@ namespace LF10_Project.MVVM.Services.Interfaces
 {
     public interface IAccountService
     {
-        public string Username { get; }
+        public Login CurrentUser { get; }
 
         public bool LoginUser(Login login);
     }
