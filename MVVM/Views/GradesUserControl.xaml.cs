@@ -17,10 +17,10 @@ using System.Windows.Shapes;
 
 namespace LF10_Project.MVVM.Views
 {
-    /// <summary>
-    /// Interaktionslogik für UserControl1.xaml
-    /// </summary>
-    public partial class GradesUserControl : UserControl
+	/// <summary>
+	/// Interaction logic for GradesUserControl.xaml
+	/// </summary>
+	public partial class GradesUserControl : UserControl
     {
         public GradesUserControl()
         {

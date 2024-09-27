@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace LF10_Project.MVVM.ViewModels
 {
+    /// <summary>
+    /// View model class for school schedule related views.
+    /// </summary>
     internal partial class ScheduleUserControlViewModel : ObservableObject
     {
         #region Members
@@ -18,13 +21,11 @@ namespace LF10_Project.MVVM.ViewModels
         #endregion
 
         #region Methods
-        private List<string> generateTeacherNames()
-        {
-            TeacherListViewModel teacherListViewModel = new TeacherListViewModel();
-            List<Teacher> teacher = teacherListViewModel.SetTeacher().ToList();
-            return teacher.Select(t => t.LastName).ToList();
-        }
+        
         #region Constructors
+        /// <summary>
+        /// Creates an instance of <see cref="ScheduleUserControlViewModel"/>.
+        /// </summary>
         public ScheduleUserControlViewModel() 
         {
             List<string> teacherNames = generateTeacherNames();
@@ -45,7 +46,16 @@ namespace LF10_Project.MVVM.ViewModels
             ScheduleDays.Add(new ScheduleDay(new List<ScheduleSubject>() { emptySubject, emptySubject, breakSubject, subjectHistory2h, breakSubject, subjectGerman1h, subjectHistory1h }));
             ScheduleDays.Add(new ScheduleDay(new List<ScheduleSubject>() { subjectEnglish2h, breakSubject, subjectGerman1h, subjectPoWi1h}));
         }
-        #endregion
-        #endregion
-    }
+		#endregion
+
+		#region Private methods
+		private List<string> generateTeacherNames()
+		{
+			TeacherListViewModel teacherListViewModel = new TeacherListViewModel();
+			List<Teacher> teacher = teacherListViewModel.SetTeacher().ToList();
+			return teacher.Select(t => t.LastName).ToList();
+		}
+		#endregion
+		#endregion
+	}
 }

@@ -16,10 +16,10 @@ using System.Windows.Shapes;
 
 namespace LF10_Project.MVVM.Views
 {
-    /// <summary>
-    /// Interaktionslogik für LoginWindow.xaml
-    /// </summary>
-    public partial class LoginWindow : Window
+	/// <summary>
+	/// Interaction logic for LoginWindow.xaml
+	/// </summary>
+	public partial class LoginWindow : Window
     {
         public LoginWindow(LoginWindowViewModel loginWindowViewModel)
         {

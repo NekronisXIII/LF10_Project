@@ -8,14 +8,28 @@ using System.Threading.Tasks;
 
 namespace LF10_Project.MVVM.Services
 {
+    /// <summary>
+    /// Service class for logging in users.
+    /// </summary>
     internal class LoginService : IAccountService
     {
-        public Login? CurrentUser { get; private set; }
-
-        public bool LoginUser(Login login)
-        {
+		#region Methods
+		#region Public methods
+		/// <summary>
+		/// Logs in the privided user.
+		/// </summary>
+		/// <param name="login"></param>
+		/// <returns></returns>
+		public bool LoginUser(Login login)
+		{
 			CurrentUser = login;
-            return true;
-        }
-    }
+			return true;
+		}
+		#endregion
+		#endregion
+
+		#region Properties
+		public Login? CurrentUser { get; private set; }
+		#endregion
+	}
 }

@@ -17,16 +17,15 @@ using System.Windows.Shapes;
 
 namespace LF10_Project.MVVM.Views
 {
-    /// <summary>
-    /// Interaktionslogik für UserControl1.xaml
-    /// </summary>
-    public partial class TeacherListUserControl : UserControl
+	/// <summary>
+	/// Interaction logic for TeacherListUserControl.xaml
+	/// </summary>
+	public partial class TeacherListUserControl : UserControl
     {
         public TeacherListUserControl()
         {
             DataContext = App.Instance.ServiceProvider.GetRequiredService<TeacherListViewModel>();
             InitializeComponent();
-
         }
     }
 }

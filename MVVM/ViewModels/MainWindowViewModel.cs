@@ -16,6 +16,9 @@ using System.Windows;
 
 namespace LF10_Project.MVVM.ViewModels
 {
+    /// <summary>
+    /// View model class for the main window.
+    /// </summary>
     internal partial class MainWindowViewModel : ObservableObject
     {
         #region Members
@@ -50,7 +53,10 @@ namespace LF10_Project.MVVM.ViewModels
 		#endregion
 
 		#region Methods
-
+		/// <summary>
+		/// Creates an instance of <see cref="MainWindowViewModel"/>.
+		/// </summary>
+		/// <param name="accountService">A singleton instance of an accout service.</param>
 		public MainWindowViewModel(IAccountService accountService) {
             _accountService = accountService;
             Username = _accountService.CurrentUser.FullName;
@@ -62,6 +68,7 @@ namespace LF10_Project.MVVM.ViewModels
             Birthday = _accountService.CurrentUser.Birthday.ToString();
         }
         #endregion
+
         #region Private methods
 
         [RelayCommand]

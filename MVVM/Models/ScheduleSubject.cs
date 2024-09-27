@@ -7,21 +7,35 @@ using System.Threading.Tasks;
 
 namespace LF10_Project.MVVM.Models
 {
+    /// <summary>
+    /// Model class for holding all information related to a school subject.
+    /// </summary>
     public class ScheduleSubject
     {
         #region Methods
         #region Constructors
-        public ScheduleSubject(SubjectType duration) 
+        /// <summary>
+        /// Creates an instance of <see cref="ScheduleSubject"/>.
+        /// </summary>
+        /// <param name="type">The type of the subject.</param>
+        public ScheduleSubject(SubjectType type) 
         {
-            Type = duration;
+            Type = type;
         }
 
-        public ScheduleSubject(string name, string location,string teacher, SubjectType duration) 
+		/// <summary>
+		/// Creates an instance of <see cref="ScheduleSubject"/>.
+		/// </summary>
+		/// <param name="name">The name of the subject.</param>
+		/// <param name="location">The location of the subject.</param>
+		/// <param name="teacher">The teacher of the subject.</param>
+		/// <param name="type">The type of the subject.</param>
+		public ScheduleSubject(string name, string location,string teacher, SubjectType type) 
         {
             SubjectName = name;
             SubjectLocation = location;
             Teacher = teacher;
-            Type = duration;
+            Type = type;
         }
         #endregion
         #endregion

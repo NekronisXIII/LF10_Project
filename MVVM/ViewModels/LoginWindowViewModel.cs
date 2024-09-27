@@ -17,11 +17,15 @@ using System.Xml.Linq;
 
 namespace LF10_Project.MVVM.ViewModels
 {
+	/// <summary>
+	/// View model class for login related views.
+	/// </summary>
 	public partial class LoginWindowViewModel : ObservableObject
 	{
+		#region Members
 		[ObservableProperty]
 		private string _name = "Manfred Müller";
-		
+
 		private string _password = "unhashed";
 
 		private IAccountService _accountService;
@@ -33,13 +37,23 @@ namespace LF10_Project.MVVM.ViewModels
 		private Brush _borderColorLoginField = new SolidColorBrush(Colors.Black);
 
 		private List<Login> _logins = new();
+		#endregion
 
-		public LoginWindowViewModel(IAccountService accountService) {
+		#region Methods
+		#region Constructors
+		/// <summary>
+		/// Creates an instance of <see cref="LoginWindowViewModel"/>.
+		/// </summary>
+		/// <param name="accountService">A singleton instance of an accout service.</param>
+		public LoginWindowViewModel(IAccountService accountService)
+		{
 			_accountService = accountService;
 		}
+		#endregion
 
+		#region Private methods
 		[RelayCommand]
-		void Login(object parameter)
+		private void Login(object parameter)
 		{
 			_logins.Add(new Login("Manfred", "Müller", "unhashed")
 			{
@@ -66,8 +80,10 @@ namespace LF10_Project.MVVM.ViewModels
 			var pwbox = parameter as PasswordBox;
 			string pw = pwbox.Password;
 
-			foreach (var login in _logins) {
-				if (login != null && login.FullName.Equals(Name) && login.Password.Equals(_password) ){
+			foreach (var login in _logins)
+			{
+				if (login != null && login.FullName.Equals(Name) && login.Password.Equals(_password))
+				{
 					_accountService.LoginUser(login);
 					WindowManager.CloseWindow<LoginWindow>(true);
 					return;
@@ -77,5 +93,7 @@ namespace LF10_Project.MVVM.ViewModels
 			BorderColorLoginField = new SolidColorBrush(Colors.Red);
 
 		}
+		#endregion
+		#endregion
 	}
 }

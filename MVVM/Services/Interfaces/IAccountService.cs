@@ -7,10 +7,22 @@ using System.Threading.Tasks;
 
 namespace LF10_Project.MVVM.Services.Interfaces
 {
+    /// <summary>
+    /// Interface for the account related services.
+    /// </summary>
     public interface IAccountService
     {
-        public Login CurrentUser { get; }
-
+        #region Methods
+        /// <summary>
+        /// Login the provided user.
+        /// </summary>
+        /// <param name="login">The provided user.</param>
+        /// <returns></returns>
         public bool LoginUser(Login login);
-    }
+		#endregion
+
+		#region Properties
+		public Login CurrentUser { get; }
+		#endregion
+	}
 }

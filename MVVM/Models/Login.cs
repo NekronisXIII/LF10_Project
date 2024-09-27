@@ -6,10 +6,19 @@ using System.Threading.Tasks;
 
 namespace LF10_Project.MVVM.Models
 {
+	/// <summary>
+	/// Model class which holds information of every login possible in this system.
+	/// </summary>
     public class Login
     {
 		#region Methods
 		#region Constructors
+		/// <summary>
+		/// Creates an instance of <see cref="Login"/>.
+		/// </summary>
+		/// <param name="firstName">The first name of the user.</param>
+		/// <param name="lastName">The last name of the user.</param>
+		/// <param name="password">The password of the user.</param>
 		public Login(string firstName, string lastName, string password)
 		{
 			FirstName = firstName;

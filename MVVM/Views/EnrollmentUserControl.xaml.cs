@@ -19,10 +19,10 @@ using System.Windows.Shapes;
 
 namespace LF10_Project.MVVM.Views
 {
-    /// <summary>
-    /// Interaktionslogik für UserControl1.xaml
-    /// </summary>
-    public partial class EnrollmentUserControl : UserControl
+	/// <summary>
+	/// Interaction logic for EnrollmentUserControl.xaml
+	/// </summary>
+	public partial class EnrollmentUserControl : UserControl
     {
         public EnrollmentUserControl()
         {

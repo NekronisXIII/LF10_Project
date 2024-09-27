@@ -17,10 +17,10 @@ using System.Windows.Shapes;
 
 namespace LF10_Project.MVVM.Views
 {
-    /// <summary>
-    /// Interaktionslogik für ScheduleUserControl.xaml
-    /// </summary>
-    public partial class ScheduleUserControl : UserControl
+	/// <summary>
+	/// Interaction logic for ScheduleUserControl.xaml
+	/// </summary>
+	public partial class ScheduleUserControl : UserControl
     {
         public ScheduleUserControl()
         {
