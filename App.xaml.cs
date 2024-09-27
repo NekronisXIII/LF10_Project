@@ -54,8 +54,8 @@ namespace LF10_Project
             bool result = WindowManager.ShowDialog<LoginWindow>(App.Instance.ServiceProvider.GetRequiredService<LoginWindowViewModel>()) ?? false;
 			if (result)
 			{
-                MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
-                MainWindow.Show();
+                App.Current.MainWindow = _serviceProvider.GetRequiredService<MainWindow>();
+				App.Current.MainWindow.Show();
 				return;
             }
 			

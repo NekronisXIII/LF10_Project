@@ -9,8 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Images\account.png" />
-    <None Remove="Resources\Images\logout.png" />
+    <None Remove="Resources\Images\Default.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +23,7 @@
 
   <ItemGroup>
     <Resource Include="Resources\Images\account.png" />
+    <Resource Include="Resources\Images\Default.ico" />
     <Resource Include="Resources\Images\logout.png" />
   </ItemGroup>
 

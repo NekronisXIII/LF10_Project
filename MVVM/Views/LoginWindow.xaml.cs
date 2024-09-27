@@ -1,4 +1,5 @@
-﻿using LF10_Project.MVVM.ViewModels;
+﻿using LF10_Project.Resources.Windows;
+using LF10_Project.MVVM.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -19,12 +20,12 @@ namespace LF10_Project.MVVM.Views
 	/// <summary>
 	/// Interaction logic for LoginWindow.xaml
 	/// </summary>
-	public partial class LoginWindow : Window
+	public partial class LoginWindow : DarkWindow
     {
         public LoginWindow(LoginWindowViewModel loginWindowViewModel)
         {
             DataContext = loginWindowViewModel;
             InitializeComponent();
         }
-    }
+	}
 }

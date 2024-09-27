@@ -1,6 +1,7 @@
 ﻿using LF10_Project.MVVM.Services.Interfaces;
 using LF10_Project.MVVM.ViewModels;
 using LF10_Project.Resources.Utils;
+using LF10_Project.Resources.Windows;
 using Microsoft.Extensions.DependencyInjection;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -19,15 +20,12 @@ namespace LF10_Project.MVVM.Views
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : DarkWindow
     {
-
-        
         public MainWindow()
         {
             DataContext = App.Instance.ServiceProvider.GetRequiredService<MainWindowViewModel>();
             InitializeComponent();
-
         }
 
         private void OnClosing(object sender, System.ComponentModel.CancelEventArgs e)

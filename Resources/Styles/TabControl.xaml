@@ -15,7 +15,7 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <TabPanel Background="#1f1f1f" 
+                        <TabPanel Background="#202020" 
                                   IsItemsHost="True" 
                                   Name="HeaderPanel"
                                   Grid.Row="0"/>
