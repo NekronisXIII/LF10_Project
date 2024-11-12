@@ -88,22 +88,30 @@
 
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Border CornerRadius="5"
+                                    <Border x:Name="rootBorder"
+										CornerRadius="5"
                                             Margin="4 2 4 2"
                                             BorderBrush="#0229bf" 
                                             BorderThickness="0 2 0 0" 
-                                            Background="#4d4d4d" 
+                                            Background="#4d4d4d"
                                             Visibility="{Binding Type, Converter={StaticResource SubjectTypeToVisibilityConverter}}" 
                                             Height="{Binding Type, Converter={StaticResource SubjectTypeToIntConverter}}">
                                         <StackPanel Margin="5 5 5 0">
-                                            <Grid HorizontalAlignment="Stretch">
-                                                <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding SubjectName}" HorizontalAlignment="Left"/>
-                                                <TextBlock TextTrimming="CharacterEllipsis" ToolTip="{Binding Teacher}" Text="{Binding Teacher, Converter={StaticResource StringToAbbreviationConverter}}" HorizontalAlignment="Right"/>
-                                            </Grid>
-                                            <TextBlock TextTrimming="CharacterEllipsis" Text="{Binding SubjectLocation}" />
+											<Grid HorizontalAlignment="Stretch">
+												<TextBlock TextTrimming="CharacterEllipsis" Text="{Binding SubjectName}" HorizontalAlignment="Left"/>
+												<TextBlock TextTrimming="CharacterEllipsis" ToolTip="{Binding Teacher}" Text="{Binding Teacher, Converter={StaticResource StringToAbbreviationConverter}}" HorizontalAlignment="Right"/>
+											</Grid>
+											<TextBlock x:Name="roomTextBlock" TextTrimming="CharacterEllipsis" Text="{Binding SubjectLocation}" />
                                         </StackPanel>
                                     </Border>
-                                </DataTemplate>
+									<DataTemplate.Triggers>
+										<DataTrigger Binding="{Binding IsCanceled}" Value="True">
+											<Setter TargetName="rootBorder" Property="Opacity" Value="0.5"/>
+											<Setter TargetName="roomTextBlock" Property="Text" Value="(Ausgefallen)"/>
+											<Setter TargetName="rootBorder" Property="BorderBrush" Value="Red"/>
+										</DataTrigger>
+									</DataTemplate.Triggers>
+								</DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </DataTemplate>

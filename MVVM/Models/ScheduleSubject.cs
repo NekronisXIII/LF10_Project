@@ -30,23 +30,23 @@ namespace LF10_Project.MVVM.Models
 		/// <param name="location">The location of the subject.</param>
 		/// <param name="teacher">The teacher of the subject.</param>
 		/// <param name="type">The type of the subject.</param>
-		public ScheduleSubject(string name, string location,string teacher, SubjectType type) 
+		public ScheduleSubject(string name, string location,string teacher, SubjectType type, bool isCanceled = false) 
         {
             SubjectName = name;
             SubjectLocation = location;
             Teacher = teacher;
             Type = type;
-        }
+            IsCanceled = isCanceled;
+		}
         #endregion
         #endregion
 
         #region Properties
         public string SubjectName { get; set; } = String.Empty;
         public string SubjectLocation { get; set; } = String.Empty;
-
         public string Teacher {  get; set; } = String.Empty;
-
         public SubjectType Type { get;}
+        public bool IsCanceled { get; }
         #endregion
     }
 }
