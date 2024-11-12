@@ -3,22 +3,35 @@
 
 	<Style x:Key="{x:Type TextBox}" TargetType="TextBox">
 		<Setter Property="BorderBrush" Value="Gray"/>
-		<Setter Property="Background" Value="#1f1f1f"/>
 		<Setter Property="CaretBrush" Value="White"/>
 		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="Background" Value="Transparent"/>
 
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="TextBox">
-					<Border CornerRadius="4" BorderThickness="1" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
-						<TextBox Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-							CaretBrush="{TemplateBinding CaretBrush}"
-							Foreground="{TemplateBinding Foreground}"
-							Style="{x:Null}"
-							Margin="3 0 0 0"
-							Background="Transparent"
-							BorderThickness="0"/>
+					<Border x:Name="rootBorder" CornerRadius="4" BorderThickness="1" Background="#1f1f1f" BorderBrush="{TemplateBinding BorderBrush}">
+						<Grid>
+							<Rectangle x:Name="placeholderWatermarkRectangle" Fill="{TemplateBinding Background}" Visibility="Hidden"/>
+							<TextBox x:Name="innerTextBox" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										CaretBrush="{TemplateBinding CaretBrush}"
+										Foreground="{TemplateBinding Foreground}"
+										Style="{x:Null}"
+										Margin="3 0 0 0"
+										Background="Transparent"
+										BorderThickness="0"
+									 Focusable="True"/>
+						</Grid>
 					</Border>
+					<ControlTemplate.Triggers>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition SourceName="innerTextBox" Property="IsFocused" Value="False"/>
+								<Condition SourceName="innerTextBox" Property="Text" Value=""/>
+							</MultiTrigger.Conditions>
+							<Setter TargetName="placeholderWatermarkRectangle" Property="Visibility" Value="Visible" />
+						</MultiTrigger>
+					</ControlTemplate.Triggers>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>

@@ -3,4 +3,10 @@
     <ImageSource x:Key="AccountImage">account.png</ImageSource>
     <ImageSource x:Key="LogoutImage">logout.png</ImageSource>
     <ImageSource x:Key="DefaultIconImageSource">Default.ico</ImageSource>
+
+	<VisualBrush x:Key="SearchWatermarkVisualBrush" Stretch="None">
+		<VisualBrush.Visual>
+			<Label HorizontalAlignment="Left" Content="Suche eingeben..." FontStyle="Italic" Opacity=".5"/>
+		</VisualBrush.Visual>
+	</VisualBrush>
 </ResourceDictionary>
