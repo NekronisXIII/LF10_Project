@@ -73,16 +73,16 @@
 					</Grid.ColumnDefinitions>
 
 					<Grid.RowDefinitions>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-                        <RowDefinition Height="20"/>
-						<RowDefinition Height="20"/>
-						<RowDefinition Height="20"/>
-						<RowDefinition Height="20"/>
-						<RowDefinition Height="20"/>
+                        <RowDefinition Height="auto"/>
+						<RowDefinition Height="auto"/>
+						<RowDefinition Height="auto"/>
+						<RowDefinition Height="auto"/>
+						<RowDefinition Height="auto"/>
+						<RowDefinition Height="auto"/>
+						<RowDefinition Height="auto"/>
 					</Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Text="Rolle: "/>
-                    <TextBlock Grid.Row="1" Text="Klasse:"/>
+					<TextBlock Grid.Row="1" Text="Klasse:" Visibility="{Binding LoginClassVisibility}"/>
                     <TextBlock Grid.Row="2" Text="Schule: "/>
 					<TextBlock Grid.Row="3" Text="E-Mail: "/>
 					<TextBlock Grid.Row="4" Text="Wohnort: "/>
@@ -90,7 +90,7 @@
 					<TextBlock Grid.Row="6" Text="Geburtstag: "/>
 
 					<TextBlock Grid.Column="1" Text="{Binding Role}" TextTrimming="CharacterEllipsis"/>
-					<TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Class}" TextTrimming="CharacterEllipsis"/>
+					<TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Class}" TextTrimming="CharacterEllipsis" Visibility="{Binding LoginClassVisibility}"/>
 					<TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding School}" TextTrimming="CharacterEllipsis"/>
 					<TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding EMail}" TextTrimming="CharacterEllipsis"/>
 					<TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding Residance}" TextTrimming="CharacterEllipsis"/>

@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using LF10_Project.MVVM.Models.Enums;
 using LF10_Project.MVVM.Services.Interfaces;
 using LF10_Project.MVVM.Views;
 using LF10_Project.Resources.Utils;
@@ -38,6 +39,9 @@ namespace LF10_Project.MVVM.ViewModels
 
         private const string UnknownInfo = "unbekannt";
 
+        [ObservableProperty]
+        private Visibility _loginClassVisibility;
+
 		[ObservableProperty]
 		private string _role = UnknownInfo;
 		[ObservableProperty]
@@ -69,7 +73,10 @@ namespace LF10_Project.MVVM.ViewModels
             Residance = _accountService.CurrentUser.Residance;
             Age = _accountService.CurrentUser.Age.ToString();
             Birthday = _accountService.CurrentUser.Birthday.ToString();
-        }
+
+            LoginClassVisibility = (_accountService.CurrentUser.Role == Models.Enums.Role.Admin) ? Visibility.Collapsed : Visibility.Visible;
+
+		}
         #endregion
 
         #region Private methods
