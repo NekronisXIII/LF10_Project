@@ -89,7 +89,7 @@
 					<TextBlock Grid.Row="5" Text="Alter: "/>
 					<TextBlock Grid.Row="6" Text="Geburtstag: "/>
 
-                    <TextBlock Grid.Column="1" Text="{Binding Role}" TextTrimming="CharacterEllipsis"/>
+					<TextBlock Grid.Column="1" Text="{Binding Role}" TextTrimming="CharacterEllipsis"/>
 					<TextBlock Grid.Column="1" Grid.Row="1" Text="{Binding Class}" TextTrimming="CharacterEllipsis"/>
 					<TextBlock Grid.Column="1" Grid.Row="2" Text="{Binding School}" TextTrimming="CharacterEllipsis"/>
 					<TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding EMail}" TextTrimming="CharacterEllipsis"/>

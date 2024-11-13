@@ -81,7 +81,7 @@ namespace LF10_Project.MVVM.ViewModels
                 Role = Role.Teacher
             });
 
-            _logins.Add(new Login("John", "Schmidt", "unhashed")
+            _logins.Add(new Login("Peter", "Parker", "unhashed")
             {
                 Age = 57,
                 Birthday = new DateOnly(1966, 2, 5),

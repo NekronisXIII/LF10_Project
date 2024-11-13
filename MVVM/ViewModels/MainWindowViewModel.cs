@@ -39,6 +39,8 @@ namespace LF10_Project.MVVM.ViewModels
         private const string UnknownInfo = "unbekannt";
 
 		[ObservableProperty]
+		private string _role = UnknownInfo;
+		[ObservableProperty]
 		private string _class = UnknownInfo;
 		[ObservableProperty]
 		private string _school = UnknownInfo;
@@ -59,6 +61,7 @@ namespace LF10_Project.MVVM.ViewModels
 		/// <param name="accountService">A singleton instance of an accout service.</param>
 		public MainWindowViewModel(IAccountService accountService) {
             _accountService = accountService;
+            Role = _accountService.CurrentUser.Role.ToString();
             Username = _accountService.CurrentUser.FullName;
             Class = _accountService.CurrentUser.Class;
             School = _accountService.CurrentUser.School;
