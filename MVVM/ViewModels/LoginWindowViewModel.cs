@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using LF10_Project.MVVM.Models;
+using LF10_Project.MVVM.Models.Enums;
 using LF10_Project.MVVM.Services.Interfaces;
 using LF10_Project.MVVM.Views;
 using LF10_Project.Resources.Utils;
@@ -63,21 +64,36 @@ namespace LF10_Project.MVVM.ViewModels
 				Class = "10b",
 				School = "Max-Planck-Gymnasium",
 				ResidanceLand = "Deutschland",
-				ResidanceCity = "Hamburg"
+				ResidanceCity = "Hamburg",
+				Role = Role.Student
+
 			});
 
-			_logins.Add(new Login("John", "Schmidt", "unhashed")
-			{
-				Age = 17,
-				Birthday = new DateOnly(2006, 2, 5),
-				EMail = "John.Schmidt@gmail.com",
-				Class = "11a",
-				School = "Albert-Einstein-Gymnasium",
-				ResidanceLand = "Deutschland",
-				ResidanceCity = "Berlin"
-			});
+            _logins.Add(new Login("John", "Schmidt", "unhashed")
+            {
+                Age = 47,
+                Birthday = new DateOnly(1976, 2, 5),
+                EMail = "John.Schmidt@gmail.com",
+                Class = "11a",
+                School = "Albert-Einstein-Gymnasium",
+                ResidanceLand = "Deutschland",
+                ResidanceCity = "Berlin",
+                Role = Role.Teacher
+            });
 
-			var pwbox = parameter as PasswordBox;
+            _logins.Add(new Login("John", "Schmidt", "unhashed")
+            {
+                Age = 57,
+                Birthday = new DateOnly(1966, 2, 5),
+                EMail = "Peter.Parker@gmail.com",
+                Class = "/",
+                School = "Albert-Einstein-Gymnasium",
+                ResidanceLand = "Deutschland",
+                ResidanceCity = "Berlin",
+                Role = Role.Admin
+            });
+
+            var pwbox = parameter as PasswordBox;
 			string pw = pwbox.Password;
 
 			foreach (var login in _logins)

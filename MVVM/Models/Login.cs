@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LF10_Project.MVVM.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,6 +43,8 @@ namespace LF10_Project.MVVM.Models
 		public string School { get; set; }
 		public string ResidanceLand { get; set; }
 		public string ResidanceCity { get; set; }
+
+		public Role Role { get; set; }
 		public string Residance => String.Join(", ", ResidanceCity, ResidanceLand);
 		#endregion
 	}
