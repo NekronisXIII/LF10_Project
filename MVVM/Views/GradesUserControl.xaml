@@ -32,9 +32,9 @@
 					  HorizontalGridLinesBrush="#A0A0A0" CanUserResizeRows="False" ItemsSource="{Binding FilteredGradeEntry}" AutoGenerateColumns="False"
                     CanUserReorderColumns="False" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="{StaticResource GradeTextBlock}" IsReadOnly="False" Binding="{Binding GradeValue}" ElementStyle="{StaticResource DataGridTextColumnElementStyle}"/>
-                <DataGridTextColumn Header="{StaticResource SubjectTextBlock}" IsReadOnly="False" Binding="{Binding Subject}" ElementStyle="{StaticResource DataGridTextColumnElementStyle}"/>
-                <DataGridTextColumn Header="{StaticResource TeacherTextBlock}" Width="*" IsReadOnly="False" Binding="{Binding MailAdress}" ElementStyle="{StaticResource DataGridTextColumnElementStyle}"/>
+                <DataGridTextColumn Header="{StaticResource GradeTextBlock}" IsReadOnly="True" Binding="{Binding GradeValue}" ElementStyle="{StaticResource DataGridTextColumnElementStyle}"/>
+                <DataGridTextColumn Header="{StaticResource SubjectTextBlock}" IsReadOnly="True" Binding="{Binding Subject}" ElementStyle="{StaticResource DataGridTextColumnElementStyle}"/>
+                <DataGridTextColumn Header="{StaticResource TeacherTextBlock}" Width="*" IsReadOnly="True" Binding="{Binding MailAdress}" ElementStyle="{StaticResource DataGridTextColumnElementStyle}"/>
 
             </DataGrid.Columns>
         </DataGrid>
