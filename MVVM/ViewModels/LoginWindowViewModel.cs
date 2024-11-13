@@ -82,7 +82,7 @@ namespace LF10_Project.MVVM.ViewModels
 
 			foreach (var login in _logins)
 			{
-				if (login != null && login.FullName.Equals(Name) && login.Password.Equals(_password))
+				if (login != null && login.FullName.Equals(Name) && login.Password.Equals(pw))
 				{
 					_accountService.LoginUser(login);
 					WindowManager.CloseWindow<LoginWindow>(true);
